@@ -1,0 +1,103 @@
+:root{
+    --color-1: #00411D;
+    --color-2: #8CC640;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins;
+    list-style: none;
+    text-decoration: none;
+}
+
+/* ######## Fonts used ########   */
+
+@font-face{
+	font-family: poplight;
+	src: url(/Poppins/Poppins-Light.ttf);
+}
+
+@font-face{
+	font-family: popmedium;
+	src: url(/Poppins/Poppins-Medium.ttf);
+}
+
+@font-face{
+	font-family: popregular;
+	src: url(/Poppins/Poppins-Regular.ttf);
+}
+
+@font-face{
+	font-family: popbold;
+	src: url(/Poppins/Poppins-Bold.ttf);
+}
+
+@font-face {
+    font-family: popthin;
+    src: url(/Poppins/Poppins-Thin.ttf);
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav{
+	width: 100%;
+	background-color: transparent;
+}
+
+.brand-logo{
+    float: left;
+    height: 60px;
+    width: auto;
+    margin-top: 10px;
+    margin-left: 34px;
+}
+
+.brand-logo-txt{
+    float: left;
+    line-height: 15vh;
+    letter-spacing: 1px;
+    width: auto;
+    font-size: 32px;
+    color: var(--color-1);
+    display: inline;
+    font-style: italic;
+    margin-left: 25px;
+    font-family: poplight;
+}
+
+.main-nav-links{
+    float: right;
+}
+
+.main-nav ul li{ 
+    display: inline-block;
+ 	list-style-type: none;
+    margin-right: 10px;
+}
+
+.main-nav ul li a{
+    font-family: popregular;
+ 	text-decoration: none;
+ 	color: var(--color-1);
+ 	line-height: 100px;
+	padding: 20px 15px;
+	/*font-weight: bold;*/
+ 	font-size: 16px;
+ 	letter-spacing: 2px;
+ 	transition: 0.6s ease;
+}
+
+.main-nav ul li a:hover{
+ 	background-color: var(--color-2);
+ 	color: #fff;
+}
+
+.main-nav ul li.active a{
+ 	background-color: var(--color-2);
+ 	color: #fff;
+}
