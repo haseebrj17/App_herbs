@@ -60,10 +60,10 @@
                 </div>
                     <div class="explore">
                     <h1>Explore</h1>
-                    <a href="#"><h2>Home</h2></a>
-                    <a href="#"><h2>Remedies</h2></a>
-                    <a href="#"><h2>Contact Us</h2></a>
-                    <a href="#"><h2>Login</h2></a>
+                    <a href="/" id="btntop2"><h2>Home</h2></a>
+                    <a href="Remedies.html"><h2>Remedies</h2></a>
+                    <a href="Contact.html"><h2>Contact Us</h2></a>
+                    <a href="Login.html"><h2>Login</h2></a>
                 </div>
                 <div class="policies">
                     <h1>Legal</h1>
@@ -81,6 +81,13 @@
         const btntop = document.querySelector("#btntop");
 
         btntop.addEventListener("click", function () {
+            window.scrollTo(0, 0);
+        });  
+    </script>
+    <script>
+        const btntop2 = document.querySelector("#btntop2");
+
+        btntop2.addEventListener("click", function () {
             window.scrollTo(0, 0);
         });  
     </script>
