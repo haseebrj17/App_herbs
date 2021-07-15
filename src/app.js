@@ -66,11 +66,17 @@ app.get('/register.html', (req, res) =>{
     res.render('register.hbs')
 });
 
-app.get('*', (req, res) =>{
+
+app.get('/Contact.html', (req, res) =>{
     res.render('404.hbs', {
         errorcomment: "Page cannot be found"
     })
 });
+
+
+///Active Directory Navbar Highlight///
+
+
 
 //process ENV
 
