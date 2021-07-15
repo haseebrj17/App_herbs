@@ -1,6 +1,8 @@
 :root{
     --color-1: #00411D;
     --color-2: #8CC640;
+    --color-3: #D6DE23;
+    --color-4: #272727;
 }
 
 *{
@@ -31,7 +33,7 @@
 
 @font-face{
 	font-family: popbold;
-	src: url(/Poppins/Poppins-Bold.ttf);
+	src: url(../Poppins/Poppins-Bold.ttf);
 }
 
 @font-face {
@@ -97,4 +99,45 @@ body{
  	color: #fff;
 }
 
+var{
+    font-size: 50px;
+    font-family: popbold;
+    color: var(--color-3);
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translateX(50%);
+}
 
+.background{
+    width: 100%;
+    height: 654px;
+    background-image: url(../img/);
+    background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.background .graphic{
+    width: 50%;
+    height: 654px;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background-image: url(../img/);
+    background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.background .comment{
+    width: 30%;
+    height: 300px;
+    background-image: url(../img/);
+    background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0%;
+    right: 20%;
+}

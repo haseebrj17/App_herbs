@@ -67,9 +67,9 @@ app.get('/register.html', (req, res) =>{
 });
 
 
-app.get('/Contact.html', (req, res) =>{
+app.get('*', (req, res) =>{
     res.render('404.hbs', {
-        errorcomment: "Page cannot be found"
+        errorcomment: "OPSSSS! 404, nothing found here!"
     })
 });
 
