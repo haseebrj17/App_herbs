@@ -4,7 +4,7 @@ const path = require("path");
 const bodyParser = require('body-parser')
 const dotenv = require('dotenv').config();
 const hbs = require('hbs');
-const livereload = require('livereload');
+// const livereload = require('livereload');
 const port = process.env.PORT || 3000;
 const key = process.env.DB_CONNECT;
 require("./db/conn");
@@ -85,16 +85,13 @@ app.get('*', (req, res) =>{
 
 //Server live realod for updating HTML and CSS files in browser, only for development session
 
-livereload.createServer({
+var livereload = require('livereload');
+var lrserver = livereload.createServer({
     exts: ['js', 'css', 'hbs', 'html', 'svg']
 });
-
-livereload.watch(partials_path);
-livereload.watch(template_path);
-livereload.watch(static_path);
-
-
-
+lrserver.watch(partials_path);
+lrserver.watch(template_path);
+lrserver.watch(static_path);
 
 //Server listening port
 
