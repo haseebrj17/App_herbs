@@ -23,12 +23,12 @@ html {
 
 @font-face{
 	font-family: poplight;
-	src: url(../Poppins/Poppins/Poppins-Light.ttf);
+	src: url(../Poppins/Poppins-Light.ttf);
 }
 
 @font-face{
 	font-family: popmedium;
-	src: url(../Poppins/Poppins/Poppins-Medium.ttf);
+	src: url(../Poppins/Poppins-Medium.ttf);
 }
 
 @font-face{
