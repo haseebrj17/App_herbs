@@ -69,7 +69,7 @@ app.get('/register.html', (req, res) =>{
 
 app.get('*', (req, res) =>{
     res.render('404.hbs', {
-        errorcomment: "OPSSSS! 404, nothing found here!"
+        errorcomment: "OPSSSS! nothing found here!"
     })
 });
 
