@@ -104,6 +104,7 @@ body{
 .main-nav ul li a{
     font-family: popregular;
  	text-decoration: none;
+    letter-spacing: 0.5px;
  	color: var(--color-1);
  	line-height: 100px;
 	padding: 20px 15px;
