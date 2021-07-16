@@ -4,9 +4,7 @@ const path = require("path");
 const bodyParser = require('body-parser')
 const dotenv = require('dotenv').config();
 const hbs = require('hbs');
-// const livereload = require('livereload');
 const port = process.env.PORT || 3000;
-const key = process.env.DB_CONNECT;
 require("./db/conn");
 
 const static_path = path.join(__dirname, "../public" );
@@ -78,16 +76,6 @@ app.get('*', (req, res) =>{
 
 
 
-//process ENV
-
-/*let key = process.env.DB_CONNECT;*/
-
-//Connect to DB
-
-/*mongoose.connect(key,
-    { useUnifiedTopology: true },
-    () => console.log('Connected to DB'),
-);*/
 
 //Server live realod for updating HTML and CSS files in browser, only for development session
 
