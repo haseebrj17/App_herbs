@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/contact.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../../public/fonts/mycollection_2/font/flaticon.css">
+    <link rel="stylesheet" type="text/css" href="/public/fonts/mycollection_2/font/flaticon.css">
+    <link rel="stylesheet" href="/public/css/master.css">
+    <script defer src="/node_modules/swup/dist/swup.min.js"></script>
+    <script defer src="/public/js/script.js"></script>
     <script>
         document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
         ':35729/livereload.js?snipver=1"></' + 'script>')
@@ -16,79 +19,81 @@
 </head>
 <body>
     {{>navbar}}
-    <section class="contactlanding">
-        <div class="picturecontactus">
-            <div class="flexcontainer">
-                <div class="video">
-                    <video id="video" autoplay loop> <source src="https://www.youtube.com/watch?v=-O-2g4QNyU8" type="video/mp4"> <source src="../../public/video/production ID_4887279.mp4" type="video/mp4"> </video>
-                </div>
-                <div class="container">
-                    <div class="info">    
-                        <h1 class="contactus">Contact Us</h1>
-                        <div class="box">
-                            <a href="https://auto:blank"><div class="mail"></div></a>
-                            <div class="text">
-                                <h2 id="mail">Herbs@aashabulhayyat.com</h2>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <a href="https://auto:blank"><div class="phone"></div></a>
-                            <div class="text">
-                                <h2 id="number">+92----------</h2>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <a href="https://auto:blank"><div class="insta"></div></a>
-                            <div class="text">
-                                <h2 id="instagram">A’ashab-ul-Hayyat</h2> 
-                            </div>
-                        </div>           
-                        <div class="box">
-                            <a href="https://auto:blank"><div class="fb"></div></a>
-                            <div class="text">
-                                <h2 id="facebook">A’ashab-ul-Hayyat</h2>
-                            </div>                        
-                        </div>    
+    <main id="swup" class="transition-fade">
+        <section class="contactlanding">
+            <div class="picturecontactus">
+                <div class="flexcontainer">
+                    <div class="video">
+                        <video id="video" autoplay loop> <source src="https://www.youtube.com/watch?v=-O-2g4QNyU8" type="video/mp4"> <source src="../../public/video/production ID_4887279.mp4" type="video/mp4"> </video>
                     </div>
-                </div>
-            </div>    
-        </div>
-    </section>
-    <section class="sub1_contact">
-        <div class="background">
-            <div class="container_sub1">
-                <div class="flex_sub1">
-                    <div class="formcontainer">
-                        <div class="form_container">
-                            <h1>Send us a Message</h1>
-                            <form action="" class="form">
-                                <div class="namemail">
-                                    <div class="flex__form">
-                                        <label for="name">Name:</label>
-                                        <input type="text" id="name">
-                                    </div>
-                                    <div class="flex__form">
-                                        <label for="email" style="margin-left: 8px;">Email:</label>
-                                        <input type="text" id="email">
-                                    </div>
+                    <div class="container">
+                        <div class="info">    
+                            <h1 class="contactus">Contact Us</h1>
+                            <div class="box">
+                                <a href="https://auto:blank"><div class="mail"></div></a>
+                                <div class="text">
+                                    <h2 id="mail">Herbs@aashabulhayyat.com</h2>
                                 </div>
-                                <label for="message">Message:</label>
-                                <textarea type="text" id="message"></textarea>
-                            </form>
+                            </div>
+                            <div class="box">
+                                <a href="https://auto:blank"><div class="phone"></div></a>
+                                <div class="text">
+                                    <h2 id="number">+92----------</h2>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <a href="https://auto:blank"><div class="insta"></div></a>
+                                <div class="text">
+                                    <h2 id="instagram">A’ashab-ul-Hayyat</h2> 
+                                </div>
+                            </div>           
+                            <div class="box">
+                                <a href="https://auto:blank"><div class="fb"></div></a>
+                                <div class="text">
+                                    <h2 id="facebook">A’ashab-ul-Hayyat</h2>
+                                </div>                        
+                            </div>    
                         </div>
                     </div>
-                    <div class="trapezoid"></div>
-                </div>
-                <div class="footer_contactsub1">
-                    <div class="imagefooter">
-                        <div class="imagefooterflex">    
-                            <a href="https://auto:blank"><div class="linkinsta"></div></a>
-                            <a href="https://auto:blank"><div class="linkfb"></div></a>
+                </div>    
+            </div>
+        </section>
+        <section class="sub1_contact">
+            <div class="background">
+                <div class="container_sub1">
+                    <div class="flex_sub1">
+                        <div class="formcontainer">
+                            <div class="form_container">
+                                <h1>Send us a Message</h1>
+                                <form action="" class="form">
+                                    <div class="namemail">
+                                        <div class="flex__form">
+                                            <label for="name">Name:</label>
+                                            <input type="text" id="name">
+                                        </div>
+                                        <div class="flex__form">
+                                            <label for="email" style="margin-left: 8px;">Email:</label>
+                                            <input type="text" id="email">
+                                        </div>
+                                    </div>
+                                    <label for="message">Message:</label>
+                                    <textarea type="text" id="message"></textarea>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="trapezoid"></div>
+                    </div>
+                    <div class="footer_contactsub1">
+                        <div class="imagefooter">
+                            <div class="imagefooterflex">    
+                                <a href="https://auto:blank"><div class="linkinsta"></div></a>
+                                <a href="https://auto:blank"><div class="linkfb"></div></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 </body>
 </html>
