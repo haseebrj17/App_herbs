@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/public/css/master.css">
     <script defer src="/node_modules/swup/dist/swup.min.js"></script>
     <script defer src="/public/js/script.js"></script>
+    <script type="text/javascript" src="../../src/app.js" defer></script>
     <script>
         document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
         ':35729/livereload.js?snipver=1"></' + 'script>')
@@ -96,5 +97,43 @@
             </div>
         </section>
     </main>
+    <script>
+        const contactform = document.querySelector('.form');
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const message = document.getElementById('message');
+
+
+        contactform = addEventListener('submit', (e)=>{
+            e.preventDefault();
+            console.log('Submit Clicked')
+
+            let formData = {
+                name: name.value,
+                email: email.value,
+                message: message.value,
+            };
+
+            console.log(formData);
+
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', '/Contact.html');
+            xhr.setRequestHeader('content-type', 'application/json');
+            xhr.onload = function(){
+                console.log(xhr.responseText);
+                if(xhr.responseText == 'success'){
+                    alert('Email sent');
+                    name.value = '';
+                    email.value = '';
+                    message.value = '';
+                }else{
+                    alert('Something went wrong')
+                }
+            }
+
+            xhr.send(JSON.stringify(formData));
+
+            });
+    </script>
 </body>
 </html>

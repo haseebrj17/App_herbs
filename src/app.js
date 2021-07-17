@@ -4,8 +4,10 @@ const path = require("path");
 const bodyParser = require('body-parser')
 const dotenv = require('dotenv').config();
 const hbs = require('hbs');
+const nodemailer = require("nodemailer");
 const port = process.env.PORT || 3000;
 require("./db/conn");
+
 
 const static_path = path.join(__dirname, "../public" );
 const template_path = path.join(__dirname, "../template/views" );
@@ -13,6 +15,8 @@ const partials_path = path.join(__dirname, "../template/partials" );
 
 app.set("views", template_path);
 app.use(express.static(static_path));
+
+app.use(express.json());
 
 app.set("view engine", "hbs");
 
@@ -55,6 +59,36 @@ app.get('/Contact.html', (req, res) =>{
     res.render('contactus.hbs')
 });
 
+app.post('/Contact.html', (req, res) =>{
+    console.log(req.body)
+
+    const transporter = nodemailer.createTrasnport({
+        service: 'gmail',
+        auth: {
+            user: 'Ahmadqazmi69@gmail.com',
+            pass: 'aladdinmotherfucka',
+        }
+    })
+
+    const mailOptions = {
+        from: req.body.email,
+        to: 'Ahmadqazmi69@gmail.com',
+        subject: `Message from ${req.body.email}: Query from A'ashab-ul-Hayyat audience!`,
+        text: req.body.message,
+    }
+
+    transporter.sendMail(mailOptions, (error, info)=>{
+        if(error){
+            console.log(error);
+            res.send('Error');
+        }else{
+            console.log('Email sent: ' + info.response);
+            res.send('Success');
+        }
+    })
+
+});
+
 
 app.get('/Login.html', (req, res) =>{
     res.render('login.hbs')
@@ -80,6 +114,7 @@ app.get('*', (req, res) =>{
 //Server live realod for updating HTML and CSS files in browser, only for development session
 
 var livereload = require('livereload');
+const { response } = require('express');
 var lrserver = livereload.createServer({
     exts: ['js', 'css', 'hbs', 'html', 'svg']
 });
