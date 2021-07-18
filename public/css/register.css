@@ -1,6 +1,12 @@
+html {
+    scroll-behavior: smooth;
+}
+
 :root{
     --color-1: #00411D;
     --color-2: #8CC640;
+    --color-3: #D6DE23;
+    --color-4: #272727;
 }
 
 *{
@@ -39,6 +45,11 @@
     src: url(/Poppins/Poppins-Thin.ttf);
 }
 
+@font-face {
+    font-family: popsemibold;
+    src: url(/Poppins/Poppins-SemiBold.ttf);
+}
+
 body{
     padding: 0;
     margin: 0;
@@ -55,6 +66,8 @@ body{
     width: auto;
     margin-top: 10px;
     margin-left: 34px;
+    z-index: 1;
+    position: absolute;
 }
 
 .brand-logo-txt{
@@ -68,6 +81,9 @@ body{
     font-style: italic;
     margin-left: 25px;
     font-family: poplight;
+    position: absolute;
+    left: 10%;
+    z-index: 1;
 }
 
 .main-nav-links{
@@ -100,4 +116,170 @@ body{
 .main-nav ul li.active a{
  	background-color: var(--color-2);
  	color: #fff;
+}
+
+.register{
+    width: 100%;
+    height: 654px;
+}
+
+.register .bgpicture{
+    width: 100%;
+    height: 654px;
+    background-image: linear-gradient(120deg, rgba(140, 198, 64, 1), rgba(0, 65, 29, 0.77)), url(../img/3.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.register .bgpicture .flexbox{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-self: center;
+    position: relative;
+}
+
+.register .bgpicture .flexbox h1{
+    font-size: 54px;
+    font-family: popbold;
+    position: absolute;
+    left: 10%;
+    bottom: 50%;
+    letter-spacing: 3px;
+    transform: translateY(-50%);
+}
+
+.register .bgpicture .flexbox h1 span{
+    font-size: 54px;
+    font-family: popbold;
+    color: var(--color-3);
+    letter-spacing: 3px;
+}
+
+.register .bgpicture .flexbox .formcontainer{
+    width: 40%;
+    height: 480px;
+    background-color: var(--color-1);
+    border-radius: 30px;
+    position: absolute;
+    right: 5%;
+    top: 0%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.register .bgpicture .flexbox .formcontainer h1{
+    font-size: 40px;
+    font-family: popregular;
+    color: var(--color-3);
+    position: absolute;
+    top: 18%;
+    left: 20%;
+}
+
+.register .bgpicture .flexbox .formcontainer .form{
+    width: 90%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    top: 5%;
+}
+
+label{
+    font-size: 20px;
+    font-family: popregular;
+    color: var(--color-2);
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+#name{
+    font-size: 20px;
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--color-2);
+    background: transparent;
+    border-radius: 8px;
+}
+
+#email{
+    font-size: 20px;
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--color-2);
+    background: transparent;
+    border-radius: 8px;
+}
+
+#password{
+    font-size: 20px;
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--color-2);
+    background: transparent;
+    border-radius: 8px;
+}
+
+
+#registerbtn{
+    font-size: 12px;
+    font-family: popsemibold;
+    padding: 16px 36px;
+    color: var(--color-1);
+    background-color: var(--color-2);
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 10px rgba(1,66,30,0.25);
+    transition: 0.6s ease;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    bottom: -11%;
+    transform: translateX(-50%);
+}
+
+#registerbtn:hover{
+    color: var(--color-3);
+    background-color: var(--color-4);
+}
+
+
+.register .bgpicture .flexbox .formcontainer .loglink{
+    font-size: 24px;
+    font-family: popregular;
+    position: absolute;
+    top: 105%;
+    color: var(--color-3);
+}
+
+.register .bgpicture .flexbox .formcontainer .loglink a{
+    font-size: 24px;
+    font-family: popregular;
+    position: absolute;
+    top: 105%;
+    color: var(--color-3);
+    margin-left: 5px;
+    cursor: pointer;
+    transition: 0.6s ease;
+}
+
+.register .bgpicture .flexbox .formcontainer .loglink a:hover{
+    color: var(--color-2);
+}
+
+#circle1{
+    width: 300px;
+    height: 300px;
+    background-image: url(../img/grad1_Register.png);
+    position: fixed;
+    top: 0%;
+    left: 0%;
 }

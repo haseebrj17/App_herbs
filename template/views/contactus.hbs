@@ -114,20 +114,19 @@
                 message: message.value,
             };
 
-            console.log(formData);
 
             let xhr = new XMLHttpRequest();
             xhr.open('POST', '/Contact.html');
             xhr.setRequestHeader('content-type', 'application/json');
             xhr.onload = function(){
                 console.log(xhr.responseText);
-                if(xhr.responseText == 'success'){
-                    alert('Email sent');
+                if(xhr.responseText == 'error'){
+                    alert('Something went wrong')
+                }else{
+                    alert('Message sent successfully')
                     name.value = '';
                     email.value = '';
                     message.value = '';
-                }else{
-                    alert('Something went wrong')
                 }
             }
 

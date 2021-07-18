@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/register.css">
     <link rel="stylesheet" href="/public/css/master.css">
     <script defer src="/node_modules/swup/dist/swup.min.js"></script>
     <script defer src="/public/js/script.js"></script>
@@ -18,7 +18,27 @@
 <body>
     {{>navbar}}
     <main id="swup" class="transition-fade">
-        <h1> This is Register! </h1>
+        <section class="register">
+            <div class="bgpicture">
+                <div class="flexbox">
+                    <h1>Join the <span>Fun!</span></h1>
+                    <div class="formcontainer">
+                        <h1>Are you ready!</h1>
+                        <form action="" class="form">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name">
+                            <label for="email" style="margin-left: 8px;">Email:</label>
+                            <input type="text" id="email">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password"></input>
+                            <input type="submit" id="registerbtn" value="Join Now">
+                        </form>
+                        <h1 class="loglink">Already a member: <a href="Login.html">Login</a></h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="circle1"></div>
     </main>
 </body>
 </html>

@@ -62,11 +62,11 @@ app.get('/Contact.html', (req, res) =>{
 app.post('/Contact.html', (req, res) =>{
     console.log(req.body)
 
-    const transporter = nodemailer.createTrasnport({
+    const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'Ahmadqazmi69@gmail.com',
-            pass: 'aladdinmotherfucka',
+            user: process.env.GMUSER,
+            pass: process.env.GMPASS,
         }
     })
 
@@ -74,7 +74,7 @@ app.post('/Contact.html', (req, res) =>{
         from: req.body.email,
         to: 'Ahmadqazmi69@gmail.com',
         subject: `Message from ${req.body.email}: Query from A'ashab-ul-Hayyat audience!`,
-        text: req.body.message,
+        text: `${req.body.message} \nFrom ${req.body.name}`,
     }
 
     transporter.sendMail(mailOptions, (error, info)=>{
@@ -94,8 +94,33 @@ app.get('/Login.html', (req, res) =>{
     res.render('login.hbs')
 });
 
-app.get('/register.html', (req, res) =>{
+app.get('/Login.html/register.html', (req, res) =>{
     res.render('register.hbs')
+});
+
+app.get('/Register.html', (req, res) =>{
+    res.render('register.hbs')
+});
+
+
+app.get('/register.html/Login.html', (req, res) =>{
+    res.redirect('/Login.html')
+});
+
+app.get('/register.html/Login.html', (req, res) =>{
+    res.redirect('/Login.html')
+});
+
+app.get('/Login.html/Login.html', (req, res) =>{
+    res.redirect('/Login.html')
+});
+
+app.get('/Login.html/Contact.html', (req, res) =>{
+    res.redirect('/Contact.html')
+});
+
+app.get('/Login.html/Remedies.html', (req, res) =>{
+    res.redirect('/Remedies.html')
 });
 
 
