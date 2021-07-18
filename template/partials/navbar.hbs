@@ -1,6 +1,6 @@
 <header>
     <a href="/">
-        <img src="/public/img/logo.png" alt="Herbs">
+        <img src="/public/img/logo.png" alt="Herbs" class=".brand-logo">
         <div class="brand-logo-txt">A'ashab-ul-Hayyat</div>
     </a>
     <nav class="main-nav">
@@ -11,14 +11,14 @@
             <li><a href="Login.html">Login</a></li>
         </ul>
     </nav>
-    {{!-- <script>
-    //    const currentLocation = location.href;
-    //    const menuItems = document.querySelectorAll('a');
-    //    const menuLength = menuItems.length;
-    //    for (let i = 0; i<menuLength; i++){
+    <script>
+        const currentLocation = location.href;
+        const menuItems = document.querySelectorAll('a');
+        const menuLength = menuItems.length;
+        for (let i = 0; i<menuLength; i++){
             if(menuItems[i].href === currentLocation){
                 menuItems[i].className = "active"
             }
         }
-    </script> --}}
+    </script>
 </header>
