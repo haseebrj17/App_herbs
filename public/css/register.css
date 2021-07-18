@@ -63,11 +63,9 @@ body{
 .brand-logo{
     float: left;
     height: 60px;
-    width: auto;
+    width: 60px;
     margin-top: 10px;
     margin-left: 34px;
-    z-index: 1;
-    position: absolute;
 }
 
 .brand-logo-txt{
