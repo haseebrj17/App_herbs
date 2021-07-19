@@ -98,7 +98,7 @@ body{
 }
 
 .main-nav ul li a{
-    font-family: popregular;
+    font-family: poplight;
  	text-decoration: none;
     letter-spacing: 0.5px;
  	color: var(--color-2);
@@ -397,7 +397,7 @@ label{
     width: 150px;
     height: 40px;
     font-size: 12px;
-    font-family: popsemibold;
+    font-family: poplight;
     line-height: 12px;
     padding: 16px 36px;
     color: var(--color-2);

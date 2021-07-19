@@ -26,12 +26,13 @@ hbs.registerPartials(partials_path);
 
 const postsRoute = require('./routes/posts');
 const authRoute = require('./routes/auth');
-
+// const getRoute = require('./routes/get')
 
 //ROUTE MIDDLEWARES
 
 app.use('/api/users', authRoute);  
 app.use('/posts', postsRoute);
+// app.use('/get', getRoute);
 
 //MIDDLEWARE
 
@@ -41,7 +42,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 //ROUTES
 
 app.get('/', (req, res) =>{
-    res.render('index.hbs');
+    res.render('index.hbs', { title: 'Home' });
 });
 
 
@@ -94,7 +95,7 @@ app.get('/Login.html', (req, res) =>{
     res.render('login.hbs')
 });
 
-app.get('/Login.html/register.html', (req, res) =>{
+app.get('/Login.html/Register.html', (req, res) =>{
     res.render('register.hbs')
 });
 
