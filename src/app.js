@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const dotenv = require('dotenv').config();
 const hbs = require('hbs');
 const nodemailer = require("nodemailer");
+const mongoose = require("mongoose");
 const port = process.env.PORT || 3000;
 require("./db/conn");
 
