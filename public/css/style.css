@@ -20,6 +20,21 @@ html {
     text-decoration: none;
 }
 
+body::-webkit-scrollbar {
+    width: 10px;
+    color: var(--color-1);
+}
+   
+body::-webkit-scrollbar-track {
+    background-color: var(--color-2);
+}
+   
+body::-webkit-scrollbar-thumb {
+    background-color: var(--color-1);
+    outline: 1px solid #8CC640;
+    border-radius: 8px;
+}
+
 /* ######## Fonts used ########   */
 
 @font-face {

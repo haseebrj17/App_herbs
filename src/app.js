@@ -67,8 +67,8 @@ app.post('/Contact.html', (req, res) =>{
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: process.env.GMUSER,
-            pass: process.env.GMPASS,
+            user: 'Ahmadqazmi69@gmail.com',
+            pass: 'aladdinmotherfucka',
         }
     })
 
