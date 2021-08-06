@@ -46,6 +46,9 @@ app.get('/', (req, res) =>{
     res.render('index.hbs', { title: 'Home' });
 });
 
+app.get('/PrivacyPolicy.html', (req, res) =>{
+    res.render('privacypolicy.hbs')
+});
 
 app.get('/Remedies.html', (req, res) =>{
     res.render('remedies.hbs')
