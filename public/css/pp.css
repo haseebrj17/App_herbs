@@ -1,4 +1,3 @@
-/*!destyle.css v1.0.7 | MIT License | https://github.com/nicolas-cusan/destyle.css*/
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -467,7 +466,7 @@ body {
   padding-right: 20px;
 }
 .page {
-  marign: 0;
+  margin: 0;
   padding: 0;
 }
 .page input,

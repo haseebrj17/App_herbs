@@ -50,6 +50,10 @@ app.get('/PrivacyPolicy.html', (req, res) =>{
     res.render('privacypolicy.hbs')
 });
 
+app.get('/Termscondition.html', (req, res) =>{
+    res.render('termscondition.hbs')
+});
+
 app.get('/Remedies.html', (req, res) =>{
     res.render('remedies.hbs')
 });
@@ -70,14 +74,14 @@ app.post('/Contact.html', (req, res) =>{
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'Ahmadqazmi69@gmail.com',
-            pass: 'aladdinmotherfucka',
+            user: 'aashabulhayyat2021@gmail.com',
+            pass: 'hayyat1990',
         }
     })
 
     const mailOptions = {
         from: req.body.email,
-        to: 'Ahmadqazmi69@gmail.com',
+        to: 'aashabulhayyat2021@gmail.com',
         subject: `Message from ${req.body.email}: Query from A'ashab-ul-Hayyat audience!`,
         text: `${req.body.message} \nFrom ${req.body.name}`,
     }

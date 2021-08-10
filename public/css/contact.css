@@ -158,19 +158,13 @@ body{
 }
 
 .contactlanding .picturecontactus .video{
-    float: left;
     position: absolute;
-    left: 3%;
+    left: 5%;
     top: 25%;
-    width: 50%;
+    width: 700px;
     height: 350px;
-    background-color: var(--color-1);
     border-radius: 8px;
-    z-index: 1;
-}
-
-#video{
-    z-index: 1;
+    background-color: #8CC640;
 }
 
 .contactlanding .picturecontactus .container{
@@ -179,7 +173,7 @@ body{
     width: 50%;
     position: absolute;
     top: 20%;
-    left: 35%;
+    right: 0%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -191,7 +185,7 @@ body{
     display: flex;
     flex-direction: column;
     position: absolute;
-    left: 55%;
+    left: 25%;
 }
 
 .contactlanding .picturecontactus .container .info .box{
