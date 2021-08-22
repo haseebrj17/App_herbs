@@ -8,6 +8,8 @@ const nodemailer = require("nodemailer");
 const mongoose = require("mongoose");
 const port = process.env.PORT || 3000;
 require("./db/conn");
+const register = require("./models/user")
+
 
 
 const static_path = path.join(__dirname, "../public" );
@@ -27,18 +29,19 @@ hbs.registerPartials(partials_path);
 
 const postsRoute = require('./routes/posts');
 const authRoute = require('./routes/auth');
+
 // const getRoute = require('./routes/get')
 
 //ROUTE MIDDLEWARES
 
-app.use('/api/users', authRoute);  
-app.use('/posts', postsRoute);
+// app.use('/api/users', authRoute);  
+// app.use('/posts', postsRoute);
 // app.use('/get', getRoute);
 
 //MIDDLEWARE
 
 app.use(express.json());
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(express.urlencoded({extended:false}));
 
 //ROUTES
 
@@ -110,6 +113,25 @@ app.get('/Login.html/Register.html', (req, res) =>{
 app.get('/Register.html', (req, res) =>{
     res.render('register.hbs')
 });
+
+//Creating a new used in DB
+
+app.post('/Register.html', async (req, res) =>{
+    try{
+
+        const registeruser = new register({
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password,
+        })
+        
+        const registered = await registeruser.save();
+        res.status(201).render("index");
+        
+    } catch (error) {
+        res.status(400).send(error);
+    }
+})
 
 
 app.get('/register.html/Login.html', (req, res) =>{

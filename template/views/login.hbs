@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/public/css/login.css">
     <link rel="stylesheet" href="/public/css/master.css">
     <script defer src="/node_modules/swup/dist/swup.min.js"></script>
     <script defer src="/public/js/script.js"></script>
@@ -18,9 +18,26 @@
 <body>
     {{>navbar}}
     <main id="swup" class="transition-fade">
-        <h1> This is Login! </h1>
-        
-        <h2 style="position: absolute; top:50%; left:50%;">Not a memeber yet: <a href="/Register.html">Register</a></h2>
+        <section class="bg">
+            <div class="picture">
+                <div class="flexbox">
+                    <div class="form">
+                        <form action="/Login.html" class="form" method="GET">
+                            <label for="email" style="margin-left: 8px;">Email:</label>
+                            <input type="text" id="email_login">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password_login"></input>
+                            <input type="submit" id="loginbtn" value="Login">
+                        </form>
+                        <h2 style="position: absolute; top:50%; left:50%;">Not a memeber yet: <a href="/Register.html">Register</a></h2>
+                    </div>
+                    <div class="quote">
+                        <h2>Health isn’t about being “Perfect” with food or exercise or herbs. <br>Health is about balancing those things with your desires. <br>It’s about nourishing your sprit as well as your body.</h2>
+                        <h1>- Golda Poretsky</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 </body>
 </html>

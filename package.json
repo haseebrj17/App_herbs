@@ -4,7 +4,7 @@
   "description": "Dynamic App for my website",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/app.js"
+    "dev": "nodemon src/app.js -e js,hbs,html,css"
   },
   "author": "Seeb_RJ17",
   "license": "ISC",
