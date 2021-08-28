@@ -4,12 +4,13 @@
   "description": "Dynamic App for my website",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/app.js -e js,hbs,html,css"
+    "dev": "nodemon src/app.js"
   },
   "author": "Seeb_RJ17",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
     "bootstrap": "^5.1.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
