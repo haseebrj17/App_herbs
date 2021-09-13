@@ -1,6 +1,8 @@
 :root{
     --color-1: #00411D;
     --color-2: #8CC640;
+    --color-3: #D6DE23;
+    --color-4: #272727;
 }
 
 *{
@@ -117,12 +119,12 @@ body{
  	color: #fff;
 }
 
-.bg{
+.login{
     height: 654px;
     width: 100%;
 }
 
-.bg .picture{
+.login .picture{
     height: 654px;
     width: 100%;
     background-image: linear-gradient(rgba(0, 65, 29, 0.85), rgba(0, 65, 29, 0.60)), url(../img/6.jpg);
@@ -131,7 +133,7 @@ body{
     background-size: cover;
 }
 
-.bg .picture .flexbox{
+.login .picture .flexbox{
     height: 654px;
     width: 100%;
     display: flex;

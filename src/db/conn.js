@@ -8,6 +8,6 @@ mongoose.connect('mongodb+srv://dbappconn:holladb@cluster0.cl0rw.mongodb.net/Aas
 }).then(() => {
     console.log("Connected to DB");
 }).catch((err) => {
-    console.log("No connection");
+    console.log("No connection to database\nDue to this error");
     console.log(err);
 });

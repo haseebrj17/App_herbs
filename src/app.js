@@ -1,10 +1,11 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const path = require("path");
-const bodyParser = require('body-parser');
-const dotenv = require('dotenv').config();
+const session = require('express-session');
+const dotenv = require("dotenv").config({path:'/src/.env'});
 const hbs = require('hbs');
 const nodemailer = require("nodemailer");
+const bcrypt = require("bcryptjs");
 const mongoose = require("mongoose");
 const port = process.env.PORT || 3000;
 require("./db/conn");
@@ -18,11 +19,7 @@ const partials_path = path.join(__dirname, "../template/partials" );
 
 app.set("views", template_path);
 app.use(express.static(static_path));
-
-app.use(express.json());
-
 app.set("view engine", "hbs");
-
 hbs.registerPartials(partials_path);
 
 //Import routes
@@ -30,15 +27,22 @@ hbs.registerPartials(partials_path);
 const postsRoute = require('./routes/posts');
 const authRoute = require('./routes/auth');
 
-//MIDDLEWARE
+//Express Body Parser MIDDLEWARE
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: false}));
+
+// Express session
+app.use(session({
+      secret: 'secret',
+      resave: true,
+      saveUninitialized: true
+    })
+);
 
 //ROUTES
 
 app.get('/', (req, res) =>{
-
     res.render('index.hbs', { title: 'Home' });
 });
 
@@ -82,9 +86,9 @@ app.post('/Contact.html', (req, res) =>{
         text: `${req.body.message} \nFrom ${req.body.name}`,
     }
 
-    transporter.sendMail(mailOptions, (error, info)=>{
-        if(error){
-            console.log(error);
+    transporter.sendMail(mailOptions, (err, info)=>{
+        if(err){
+            console.log(err);
             res.send('Error');
         }else{
             console.log('Email sent: ' + info.response);
@@ -109,21 +113,34 @@ app.get('/Register.html', (req, res) =>{
 
 //Creating a new used in DB
 
-app.post('/Register.html', async (req, res) => {
+app.post('/Register.html', (req, res) => {
+    
     try{
         const registerUser = new Register({
             name: req.body.name,
             email: req.body.email,
-            password: req.body.password,
+            password: req.body.password
         })
-        const registeredUser = await registerUser.save();
-        res.status(201).render('remedies.hbs');
+        
+        bcrypt.genSalt(10, (err, salt) => 
+            bcrypt.hash(registerUser.password, salt, (hash) => {
+                if(err) console.log(err);
+
+                registerUser.password = hash;
+
+                registerUser.save()
+                    .then(user => {
+                        res.status(201).redirect('/Login.html')}
+                    )
+                    .catch(error => console.log(error))
+            
+            })
+        );
         
     } catch (err) {
         res.status(400).send(err);
     }
 });
-
 
 app.get('/register.html/Login.html', (req, res) =>{
     res.redirect('/Login.html')
