@@ -1,3 +1,3 @@
-nodemon App.js
+npm run dev
 
 pause

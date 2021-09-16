@@ -1,12 +1,12 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const path = require("path");
-const session = require('express-session');
-const dotenv = require("dotenv").config({path:'/src/.env'});
 const hbs = require('hbs');
-const nodemailer = require("nodemailer");
-const bcrypt = require("bcryptjs");
-const mongoose = require("mongoose");
+const session = require('express-session');
+const dotenv = require('dotenv').config({path:'/src/.env'});
+const mongoose = require('mongoose');
+const nodemailer = require('nodemailer');
+const bcrypt = require('bcryptjs');
+const path = require('path');
 const port = process.env.PORT || 3000;
 require("./db/conn");
 const Register = require("./models/user");
@@ -17,9 +17,10 @@ const static_path = path.join(__dirname, "../public" );
 const template_path = path.join(__dirname, "../template/views" );
 const partials_path = path.join(__dirname, "../template/partials" );
 
+
+app.set("view engine", "hbs");
 app.set("views", template_path);
 app.use(express.static(static_path));
-app.set("view engine", "hbs");
 hbs.registerPartials(partials_path);
 
 //Import routes
@@ -107,13 +108,32 @@ app.get('/Login.html/Register.html', (req, res) =>{
     res.render('register.hbs')
 });
 
+
+app.post('/Login.html', async (req, res) =>{
+    try {
+        const email = req.body.email;
+        const password = req.body.password;
+
+        const useremail = await Register.findOne({email:email});
+        
+        if(useremail.password === password){
+            res.status(201).redirect('/Remedies.html')
+        }else{
+            res.send("Either Email or Password is not correct")
+        }
+
+    } catch{
+        res.status(400).send("Invalid Credentials")
+    }
+});
+
 app.get('/Register.html', (req, res) =>{
     res.render('register.hbs')
 });
 
 //Creating a new used in DB
 
-app.post('/Register.html', (req, res) => {
+app.post('/Register.html', async (req, res) => {
     
     try{
         const registerUser = new Register({
@@ -121,6 +141,13 @@ app.post('/Register.html', (req, res) => {
             email: req.body.email,
             password: req.body.password
         })
+        
+        // const emailExits = user.findOne({ email: req.body.email });
+        // if(emailExits) return res.status(400).send('Email already exits');
+
+        registerUser.save();
+        res.status(201).redirect('/Login.html');
+            
         
         bcrypt.genSalt(10, (err, salt) => 
             bcrypt.hash(registerUser.password, salt, (hash) => {

@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/register.css">
-    <link rel="stylesheet" href="/public/css/master.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="shortcut icon" type="image/svg" href="fonts/svg/logo1.svg"/>
     <script defer src="/node_modules/swup/dist/swup.min.js"></script>
-    <script defer src="/public/js/script.js"></script>
+    <script defer src="js/script.js"></script>
     <script>
         document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
         ':35729/livereload.js?snipver=1"></' + 'script>')
@@ -16,6 +17,7 @@
     <title>Contact Us</title>
 </head>
 <body>
+    <div id="circle1"></div>
     {{>navbar}}
     <main id="swup" class="transition-fade">
         <section class="register">
@@ -26,11 +28,11 @@
                         <h1>Are you ready!</h1>
                         <form action="/Register.html" method="POST" class="form">
                             <label for="name">Username:</label>
-                            <input type="text" id="name">
+                            <input type="text" name="name" required id="name">
                             <label for="email" style="margin-left: 8px;">Email:</label>
-                            <input type="text" id="email">
+                            <input type="email" name="email" required id="email">
                             <label for="password">Password:</label>
-                            <input type="password" id="password"></input>
+                            <input type="password" name="password" required id="password"></input>
                             <input type="submit" id="registerbtn" value="Join Now">
                         </form>
                         <h1 class="loglink">Already a member: <a href="Login.html">Login</a></h1>
@@ -38,7 +40,34 @@
                 </div>
             </div>
         </section>
-        <div id="circle1"></div>
+        
+        <section class="footer">
+            <div class="footer1">
+                <div class="footercontent">
+                    <div class="footerlogo">
+                        <h1>A’ashab-ul-Hayyat</h1>
+                        <h3>"The art of healing comes from nature, <br>not from the physician."</h3>
+                        <h2>-Paracelsus</h2>
+                    </div>
+                        <div class="explore">
+                        <h1>Explore</h1>
+                        <a href="/"><h2>Home</h2></a>
+                        <a href="Remedies.html"><h2>Remedies</h2></a>
+                        <a href="Contact.html"><h2>Contact Us</h2></a>
+                        <a href="Login.html"><h2>Login</h2></a>
+                    </div>
+                    <div class="policies">
+                        <h1>Legal</h1>
+                        <a href="https://privacyterms.io/view/pyElS87R-P1oWe1Pq-yyeNIP/#"><h2>Privacy policy</h2></a>
+                        <a href="https://www.termsfeed.com/live/639aa683-92af-4db2-ab3f-37f7cfd11718"><h2>Terms & Conditions</h2></a>
+                        {{!-- <a href="#"><h2>Guidelines</h2></a> --}}
+                    </div>
+                </div>
+            </div>
+            <div class="footer2">
+                <h1>2021 &copy; <a href="https://www.instagram.com/seeb_rj17/" id="copyrightbtn" target="_blank">Seeb_RJ17</a> | Created by Haseeb Rajpoot</h1>
+            </div>
+        </section>
     </main>
 </body>
 </html>

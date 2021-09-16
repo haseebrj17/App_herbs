@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/css/login.css">
-    <link rel="stylesheet" href="/public/css/master.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="shortcut icon" type="image/svg" href="fonts/svg/logo1.svg"/>
     <script defer src="/node_modules/swup/dist/swup.min.js"></script>
-    <script defer src="/public/js/script.js"></script>
+    <script defer src="js/script.js"></script>
     <script>
         document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
         ':35729/livereload.js?snipver=1"></' + 'script>')
@@ -20,23 +21,58 @@
     <section class="login">
         <div class="picture">
             <div class="flexbox">
-                <div class="form">
-                    <form action="/Login.html" class="form" method="GET">
+                <div class="formcontainer">
+                    <h1>What are you waiting for, Login?</h1>
+                    <form action="/Login.html" method="POST" class="form" >
                         <label for="email" style="margin-left: 8px;">Email:</label>
-                        <input type="text" id="email_login">
+                        <input type="text" name="email" required id="email">
                         <label for="password">Password:</label>
-                        <input type="password" id="password_login"></input>
+                        <input type="password" name="password" required id="password"></input>
                         <input type="submit" id="loginbtn" value="Login">
                     </form>
-                    <h2>Not a memeber yet: <a href="/Register.html">Register</a></h2>
+                    <h1 class="reglink">Not a memeber yet: <a href="/Register.html">Register</a></h1>
                 </div>
                 <div class="quote">
-                    <h2>Health isn’t about being “Perfect” with food or exercise or herbs. <br>Health is about balancing those things with your desires. <br>It’s about nourishing your sprit as well as your body.</h2>
+                    <h2>Health isn’t about being “Perfect” with food or exercise or herbs. <br>Health is about balancing those things with your desires. It’s about nourishing your sprit as well <br>as your body.</h2>
                     <h1>- Golda Poretsky</h1>
                 </div>
             </div>
         </div>
     </section>
+        <section class="footer">
+            <div class="footer1">
+                <div class="footercontent">
+                    <div class="footerlogo">
+                        <h1>A’ashab-ul-Hayyat</h1>
+                        <h3>"The art of healing comes from nature, <br>not from the physician."</h3>
+                        <h2>-Paracelsus</h2>
+                    </div>
+                        <div class="explore">
+                        <h1>Explore</h1>
+                        <a href="/"><h2>Home</h2></a>
+                        <a href="Remedies.html"><h2>Remedies</h2></a>
+                        <a href="Contact.html"><h2>Contact Us</h2></a>
+                        <a id="btntoplogin"><h2>Login</h2></a>
+                    </div>
+                    <div class="policies">
+                        <h1>Legal</h1>
+                        <a href="PrivacyPolicy.html"><h2>Privacy policy</h2></a>
+                        <a href="Termscondition.html"><h2>Terms & Conditions</h2></a>
+                        {{!-- <a href="#"><h2>Guidelines</h2></a> --}}
+                    </div>
+                </div>
+            </div>
+            <div class="footer2">
+                <h1>2021 &copy; <a href="https://www.instagram.com/seeb_rj17/" id="copyrightbtn" target="_blank">Seeb_RJ17</a> | Created by Haseeb Rajpoot</h1>
+            </div>
+        </section>
     </main>
+    <script>
+        const btntop = document.querySelector("#btntoplogin");
+
+        btntop.addEventListener("click", function () {
+            window.scrollTo(0, 0);
+        });  
+    </script>
 </body>
 </html>

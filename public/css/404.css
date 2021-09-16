@@ -54,9 +54,13 @@ body{
 .brand-logo{
     float: left;
     height: 60px;
-    width: auto;
+    width: 80px;
     margin-top: 10px;
     margin-left: 34px;
+    background-image: url(../img/logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .brand-logo-txt{
