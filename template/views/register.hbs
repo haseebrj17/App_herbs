@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/register.css">
     <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="shortcut icon" type="image/svg" href="fonts/svg/logo1.svg"/>
     <script defer src="/node_modules/swup/dist/swup.min.js"></script>
     <script defer src="js/script.js"></script>
@@ -13,10 +14,15 @@
         document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
         ':35729/livereload.js?snipver=1"></' + 'script>')
     </script>
-    <title>A'ashab-ul-Hayyat</title>
-    <title>Contact Us</title>
+    <title>A'ashab-ul-Hayyat - Register</title>
 </head>
 <body>
+    {{#if message}}
+    <div style="text-align: center;" id="error" class="error alert{{message.type}}">
+        <a style="cursor: pointer;" type="button" class="close" id="dismiss" value="Remove" onclick="removeDiv(this)"><img style="width: 10px; height: 10px;" type="image/svg" src="fonts/svg/cross-sign.svg" alt="cross"></a>
+        <div class="msg"><strong>{{message.intro}}</strong> {{message.message}}</div>
+    </div>
+    {{/if}}
     <div id="circle1"></div>
     {{>navbar}}
     <main id="swup" class="transition-fade">
@@ -69,5 +75,11 @@
             </div>
         </section>
     </main>
+    <script>
+        function removeDiv(btnstate){
+            const errDiv = document.getElementById("error");
+            errDiv.parentNode.removeChild(errDiv);
+        }
+    </script>
 </body>
 </html>

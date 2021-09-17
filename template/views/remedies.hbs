@@ -17,6 +17,12 @@
     <title>Remedies</title>
 </head>
 <body>
+    {{#if message}}
+    <div style="text-align: center;" id="error" class="error alert{{message.type}}">
+        <a style="cursor: pointer;" type="button" class="close" id="dismiss" value="Remove" onclick="removeDiv(this)"><img style="width: 10px; height: 10px;" type="image/svg" src="fonts/svg/cross-sign.svg" alt="cross"></a>
+        <div class="msg"><strong>{{message.intro}}</strong> {{message.message}}</div>
+    </div>
+    {{/if}}
     <button id="btntop"><i class="material-icons">arrow_upward</i></button> 
     {{>navbar}}
     <main id="swup" class="transition-fade">
@@ -112,6 +118,12 @@
             </div>
         </section>
     </main>
+    <script>
+        function removeDiv(btnstate){
+            const errDiv = document.getElementById("error");
+            errDiv.parentNode.removeChild(errDiv);
+        }
+    </script>
     <script>
         const btntop = document.querySelector("#btntop");
 

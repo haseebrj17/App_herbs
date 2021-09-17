@@ -4,17 +4,20 @@ const userSchema = new mongoose.Schema({
     name: {
         type: String,
         min: 6,
+        required: true,
         max: 255
     },
     email: {
         type: String,
         max: 400,
         unique: true,
+        required: true,
         index: true
     },
     password: {
         type: String,
         min: 6,
+        required: true,
         max: 1024
     },
     date: {
