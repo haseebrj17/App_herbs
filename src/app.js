@@ -2,17 +2,20 @@ const express = require('express');
 const app = express();
 const hbs = require('hbs');
 const session = require('express-session');
-const cookieParser = require('cookie-parser')
-const dotenv = require('dotenv').config({path:'/src/.env'});
+const cookieParser = require('cookie-parser');
+require('dotenv').config();
 const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
 const bcrypt = require('bcryptjs');
 const path = require('path');
+const jwt = require('jsonwebtoken');
 const port = process.env.PORT || 3000;
 require("./db/conn");
 const Register = require("./models/user");
+const auth = require("./middleware/auth");
 
-
+const gmUser = process.env.GM_USER;
+const gmPass = process.env.GM_PASS;
 
 const static_path = path.join(__dirname, "../public" );
 const template_path = path.join(__dirname, "../template/views" );
@@ -37,7 +40,7 @@ app.use(express.urlencoded({extended: false}));
 
 // Cookies
 
-app.use(cookieParser('secret'))
+app.use(cookieParser())
 
 // Express session
 
@@ -48,7 +51,6 @@ app.use(session({
       cookie: {maxAge: null}
     })
 );
-
 
 
 // Flash messages middleware
@@ -73,8 +75,15 @@ app.get('/Termscondition.html', (req, res) =>{
     res.render('termscondition.hbs')
 });
 
-app.get('/Remedies.html', (req, res) =>{
-    res.render('remedies.hbs')
+
+app.get('/Remedies.html', auth , (req, res) =>{
+    req.session.message = {
+        type: 'Sucess',
+        intro: 'Welcome  ',
+        message: 'this is the member only area! Enjoy'
+    }
+    res.render('remediesjwt.hbs')
+    delete req.session.message
 });
 
 app.get('/Remedies.html/*', (req, res) =>{
@@ -89,31 +98,54 @@ app.get('/Contact.html', (req, res) =>{
 
 app.post('/Contact.html', (req, res) =>{
     console.log(req.body)
+    try{
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: gmUser,
+                pass: gmPass
+            }
+        })
 
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: 'aashabulhayyat2021@gmail.com',
-            pass: 'hayyat1990',
+        const mailOptions = {
+            from: req.body.email,
+            to: gmUser,
+            subject: `Message from ${req.body.email}: Query from A'ashab-ul-Hayyat audience!`,
+            text: `${req.body.message} \n \nFrom ${req.body.name}`,
         }
-    })
 
-    const mailOptions = {
-        from: req.body.email,
-        to: 'aashabulhayyat2021@gmail.com',
-        subject: `Message from ${req.body.email}: Query from A'ashab-ul-Hayyat audience!`,
-        text: `${req.body.message} \nFrom ${req.body.name}`,
+        transporter.sendMail(mailOptions, (err, info) => {
+            if (err) {
+                console.log(err);
+                req.session.message = {
+                    type: 'Backend Problem',
+                    intro: 'Something went wrong',
+                    message: 'Cannot send the query please try again later'
+                }
+                res.redirect('/Contact.html')
+                delete req.session.message
+            } else {
+                console.log('Email sent: ' + info.response);
+                req.session.message = {
+                    type: 'Sucess',
+                    intro: 'Message sent successfully  ',
+                    message: 'we will get to you as soon as possible'
+                }
+                res.redirect('/Contact.html')
+                delete req.session.message
+            }
+        });
+
+    } catch {
+        
+        req.session.message = {
+            type: 'Backend Problem',
+            intro: 'Something went wrong ',
+            message: 'Cannot send the query please try again later'
+        }
+        res.redirect('/Contact.html')
+        delete req.session.message
     }
-
-    transporter.sendMail(mailOptions, (err, info)=>{
-        if(err){
-            console.log(err);
-            res.send('Error');
-        }else{
-            console.log('Email sent: ' + info.response);
-            res.send('Success');
-        }
-    })
 
 });
 
@@ -126,7 +158,6 @@ app.get('/Login.html/Register.html', (req, res) =>{
     res.render('register.hbs')
 });
 
-
 app.post('/Login.html', async (req, res) =>{
     try {
         const email = req.body.email;
@@ -135,6 +166,16 @@ app.post('/Login.html', async (req, res) =>{
 
         if(useremail) {
             const validpass = await bcrypt.compare(password, useremail.password);
+
+            const token = await useremail.generateAuthToken();
+            console.log(token);
+
+            res.cookie("keyrem", token, {
+                expires:new Date(Date.now() + 5000000),
+                httpOnly:true,
+                // secure:true
+            });
+
             if(validpass) {
                 req.session.message = {
                     type: 'Sucess',
@@ -169,7 +210,37 @@ app.post('/Login.html', async (req, res) =>{
             message: 'Cannot login please try again later'
         }
         res.redirect('/')
+    }
+});
+
+app.get('/Logout.html', auth , async (req, res) =>{
+    try {
+        req.user.tokens = req.user.tokens.filter((instance) => {
+                return instance.token !== req.token
+        });
+
+        res.clearCookie("keyrem");
+
+        console.log("Logged out sucessfully");
+
+        await req.user.save();
+
+        req.session.message = {
+            type: 'Sucess',
+            intro: 'Logged Out Sucessfully ',
+            message: 'login or register!'
+        }
+        res.redirect('/Login.html')
         delete req.session.message
+
+    } catch (error) {
+        res.status(500).redner('index.hbs')
+        req.session.message = {
+            type: 'Backend problem',
+            intro: 'Something went wrong ',
+            message: 'please try again later'
+        }
+        
     }
 });
 
@@ -219,10 +290,19 @@ app.post('/Register.html', async (req, res) => {
         }
         else {
             bcrypt.genSalt(10, (err, salt) => 
-            bcrypt.hash(registerUser.password, salt, (err, hash) => {
+            bcrypt.hash(registerUser.password, salt, async (err, hash) => {
                 if(err) console.log(err);
 
                 registerUser.password = hash;
+                
+                const token = await registerUser.generateAuthToken()
+                console.log(token);
+                
+                res.cookie("keyrem", token, {
+                    expires:new Date(Date.now() + 50000),
+                    httpOnly:true
+                    // secure:true
+                });
 
                 registerUser.save()
                     .then(user => {
@@ -248,7 +328,7 @@ app.post('/Register.html', async (req, res) => {
         res.redirect('/')
         delete req.session.message
     }
-});    
+});
 
 app.get('/register.html/Login.html', (req, res) =>{
     res.redirect('/Login.html')
@@ -270,7 +350,6 @@ app.get('/Login.html/Remedies.html', (req, res) =>{
     res.redirect('/Remedies.html')
 });
 
-
 app.get('*', (req, res) =>{
     res.render('404.hbs', {
         errorcomment: "OPSSSS! nothing found here!"
@@ -279,7 +358,6 @@ app.get('*', (req, res) =>{
 
 
 ///Active Directory Navbar Highlight///
-
 
 
 

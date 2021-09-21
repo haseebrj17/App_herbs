@@ -20,6 +20,12 @@
     <title>Contact Us</title>
 </head>
 <body>
+    {{#if message}}
+    <div style="text-align: center;" id="error" class="error alert{{message.type}}">
+        <a style="cursor: pointer;" type="button" class="close" id="dismiss" value="Remove" onclick="removeDiv(this)"><img style="width: 10px; height: 10px;" type="image/svg" src="fonts/svg/cross-sign.svg" alt="cross"></a>
+        <div class="msg"><strong>{{message.intro}}</strong> {{message.message}}</div>
+    </div>
+    {{/if}}
     {{>navbar}}
     <main id="swup" class="transition-fade">
         <section class="contactlanding">
@@ -67,19 +73,13 @@
                         <div class="formcontainer">
                             <div class="form_container">
                                 <h1>Send us a Message</h1>
-                                <form action="" class="form">
-                                    <div class="namemail">
-                                        <div class="flex__form">
-                                            <label for="name">Name:</label>
-                                            <input type="text" required id="name">
-                                        </div>
-                                        <div class="flex__form">
-                                            <label for="email" style="margin-left: 8px;">Email:</label>
-                                            <input type="email" required id="email">
-                                        </div>
-                                    </div>
+                                <form action="/Contact.html" method="POST" class="form">    
+                                    <label for="name">Name:</label>
+                                    <input type="text" required name="name" id="name">
+                                    <label for="email">Email:</label>
+                                    <input type="email" required name="email" id="email">
                                     <label for="message">Message:</label>
-                                    <textarea type="text" required id="message"></textarea>
+                                    <textarea type="text" required name="message" id="message"></textarea>
                                     <input type="submit" id="submitbtn" value="Submit">
                                 </form>
                             </div>
@@ -126,48 +126,18 @@
         </section>
     </main>
     <script>
+        function removeDiv(btnstate){
+            const errDiv = document.getElementById("error");
+            errDiv.parentNode.removeChild(errDiv);
+        }
+    </script>
+    <script>
         const btntop = document.querySelector("#btntopcontact");
 
         btntop.addEventListener("click", function () {
             window.scrollTo(0, 0);
         });  
     </script>
-    <script>
-        const contactform = document.querySelector('.form');
-        const name = document.getElementById('name');
-        const email = document.getElementById('email');
-        const message = document.getElementById('message');
 
-
-        contactform = addEventListener('submit', (e)=>{
-            e.preventDefault();
-            console.log('Submit Clicked')
-
-            let formData = {
-                name: name.value,
-                email: email.value,
-                message: message.value,
-            };
-
-
-            let xhr = new XMLHttpRequest();
-            xhr.open('POST', '/Contact.html');
-            xhr.setRequestHeader('content-type', 'application/json');
-            xhr.onload = function(){
-                console.log(xhr.responseText);
-                if(xhr.responseText == 'error'){
-                    alert('Something went wrong')
-                }else{
-                    alert('Message sent successfully')
-                    name.value = '';
-                    email.value = '';
-                    message.value = '';
-                }
-            }
-
-            xhr.send(JSON.stringify(formData));
-
-            });
-    </script>
 </body>
 </html>

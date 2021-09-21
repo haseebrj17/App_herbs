@@ -38,36 +38,43 @@ body::-webkit-scrollbar-thumb {
 @font-face{
 	font-family: poplight;
 	src: url(/Poppins/Poppins-Light.ttf);
+    font-display: swap;
 }
 
 @font-face{
 	font-family: popmedium;
 	src: url(/Poppins/Poppins-Medium.ttf);
+    font-display: swap;
 }
 
 @font-face{
 	font-family: popregular;
 	src: url(/Poppins/Poppins-Regular.ttf);
+    font-display: swap;
 }
 
 @font-face{
 	font-family: popbold;
 	src: url(/Poppins/Poppins-Bold.ttf);
+    font-display: swap;
 }
 
 @font-face{
 	font-family: popsemibold;
 	src: url(/Poppins/Poppins-SemiBold.ttf);
+    font-display: swap;
 }
 
 @font-face {
     font-family: popthin;
     src: url(/Poppins/Poppins-Thin.ttf);
+    font-display: swap;
 }
 
 @font-face {
     font-family: popmediumitalic;
     src: url(/Poppins/Poppins-MediumItalic);
+    font-display: swap;
 }
 
 body{
@@ -135,6 +142,25 @@ body{
 
 .main-nav-links{
     float: right;
+}
+
+.main-nav .main-nav-links .user .dd{
+    visibility: hidden;
+}
+
+.main-nav .main-nav-links .user .dd .box{
+    width: 100px;
+    height: 100px;
+    background-color: vay(--color-3);
+}
+
+.main-nav .main-nav-links .user .dd::before{
+    content: '';
+}
+
+.main-nav .main-nav-links .user:hover .dd{
+    display: flex;
+    visibility: visible;
 }
 
 .main-nav ul li{ 

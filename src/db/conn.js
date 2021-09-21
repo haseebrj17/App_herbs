@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const key = process.env.DB_CONNECT;
 
-mongoose.connect('mongodb+srv://dbappconn:holladb@cluster0.cl0rw.mongodb.net/Aashabulhayyat?retryWrites=true&w=majority', {
+mongoose.connect(key, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,

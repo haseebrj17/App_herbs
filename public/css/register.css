@@ -38,31 +38,37 @@ body::-webkit-scrollbar-thumb {
 @font-face{
 	font-family: poplight;
 	src: url(/Poppins/Poppins-Light.ttf);
+    font-display: swap;
 }
 
 @font-face{
 	font-family: popmedium;
 	src: url(/Poppins/Poppins-Medium.ttf);
+    font-display: swap;
 }
 
 @font-face{
 	font-family: popregular;
 	src: url(/Poppins/Poppins-Regular.ttf);
+    font-display: swap;
 }
 
 @font-face{
 	font-family: popbold;
 	src: url(/Poppins/Poppins-Bold.ttf);
+    font-display: swap;
 }
 
 @font-face {
     font-family: popthin;
     src: url(/Poppins/Poppins-Thin.ttf);
+    font-display: swap;
 }
 
 @font-face {
     font-family: popsemibold;
     src: url(/Poppins/Poppins-SemiBold.ttf);
+    font-display: swap;
 }
 
 body{

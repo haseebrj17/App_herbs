@@ -9,8 +9,24 @@
             <li><a href="Remedies.html">Remedies</a></li>
             <li><a href="Contact.html">Contact Us</a></li>
             <li><a href="Login.html">Login</a></li>
+            {{!-- <li class="user"><a href="Login.html">User</a>
+                <div class="dd">
+                    <div class="box">
+                        <ul>
+                            <li><a href="/Logout">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li> --}}
         </ul>
     </nav>
+    <script>
+	var dd_main = document.querySelector(".user");
+
+	dd_main.addEventListener("hover", function(){
+		this.classList.toggle("active");
+	})
+    </script>
     <script>
         const currentLocation = location.href;
         const menuItems = document.querySelectorAll('a');
