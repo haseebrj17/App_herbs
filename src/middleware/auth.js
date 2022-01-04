@@ -6,7 +6,7 @@ require('dotenv').config();
 const auth = async (req, res, next) =>{
     try {
         const token = req.cookies.keyrem;
-     
+    
         if (token){ 
             const userVerified = jwt.verify(token, process.env.SEC_KEY);
             console.log('User is authentic');
@@ -17,7 +17,7 @@ const auth = async (req, res, next) =>{
 
             req.token = token;
             req.user = user;
-            
+
             next();
         } else {
             res.render('remedies.hbs')

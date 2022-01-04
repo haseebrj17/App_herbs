@@ -13,14 +13,12 @@ const port = process.env.PORT || 3000;
 require("./db/conn");
 const Register = require("./models/user");
 const auth = require("./middleware/auth");
-
 const gmUser = process.env.GM_USER;
 const gmPass = process.env.GM_PASS;
-
+const logKey = process.env.SEC_KEY_SES;
 const static_path = path.join(__dirname, "../public" );
 const template_path = path.join(__dirname, "../template/views" );
 const partials_path = path.join(__dirname, "../template/partials" );
-
 
 app.set("view engine", "hbs");
 app.set("views", template_path);
@@ -38,20 +36,20 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 
-// Cookies
+// Cookies MIDDLEWARE
 
-app.use(cookieParser())
+app.use(cookieParser());
 
 // Express session
 
 app.use(session({
-      secret: 'secret',
+      key: 'flash_sid',
+      secret: logKey,
       resave: true,
       saveUninitialized: true,
       cookie: {maxAge: null}
     })
 );
-
 
 // Flash messages middleware
 
@@ -61,10 +59,19 @@ app.use((req, res, next) =>{
     next()
 });
 
+// NavBar middleware
+
+const logData = {loggedin: false};
+
 //ROUTES
 
 app.get('/', (req, res) =>{
-    res.render('index.hbs', { title: 'Home' });
+    if (!req.cookies.log && !req.cookies.keyrem) {
+        res.render('index.hbs', logData);
+    } else {
+        logData.loggedin = true;
+        res.render('index.hbs', logData);
+    }
 });
 
 app.get('/PrivacyPolicy.html', (req, res) =>{
@@ -74,7 +81,6 @@ app.get('/PrivacyPolicy.html', (req, res) =>{
 app.get('/Termscondition.html', (req, res) =>{
     res.render('termscondition.hbs')
 });
-
 
 app.get('/Remedies.html', auth , (req, res) =>{
     req.session.message = {
@@ -94,6 +100,12 @@ app.get('/Remedies.html/*', (req, res) =>{
 
 app.get('/Contact.html', (req, res) =>{
     res.render('contactus.hbs')
+});
+
+app.get('/Contact.html/*', (req, res) =>{
+    res.render('404.hbs', {
+        errorcomment: "Page cannot be found in Contact"
+    })
 });
 
 app.post('/Contact.html', (req, res) =>{
@@ -149,9 +161,14 @@ app.post('/Contact.html', (req, res) =>{
 
 });
 
-
 app.get('/Login.html', (req, res) =>{
     res.render('login.hbs')
+});
+
+app.get('/Login.html/*', (req, res) =>{
+    res.render('404.hbs', {
+        errorcomment: "Page cannot be found in Login"
+    })
 });
 
 app.get('/Login.html/Register.html', (req, res) =>{
@@ -175,6 +192,11 @@ app.post('/Login.html', async (req, res) =>{
                 httpOnly:true,
                 // secure:true
             });
+
+            res.cookie("log", 0, {
+                expires:new Date(Date.now() + 5000000),
+                httpOnly:true
+            })
 
             if(validpass) {
                 req.session.message = {
@@ -220,6 +242,12 @@ app.get('/Logout.html', auth , async (req, res) =>{
         });
 
         res.clearCookie("keyrem");
+
+        res.clearCookie("log");
+        
+        // res.cookie("keyrem", 0, {maxAge:0})
+
+        // res.cookie("log", 0, {maxAge:0});
 
         console.log("Logged out sucessfully");
 
@@ -288,6 +316,15 @@ app.post('/Register.html', async (req, res) => {
             res.redirect('/Register.html')
             delete req.session.message
         }
+        else if(registerUser == '') {
+            req.session.message = {
+                type: 'Danger',
+                intro: 'Connection Issues ',
+                message: 'Please connect to internet, or there is a problem in our backend'
+            }
+            res.redirect('/Register.html')
+            delete req.session.message
+        }
         else {
             bcrypt.genSalt(10, (err, salt) => 
             bcrypt.hash(registerUser.password, salt, async (err, hash) => {
@@ -303,6 +340,11 @@ app.post('/Register.html', async (req, res) => {
                     httpOnly:true
                     // secure:true
                 });
+
+                res.cookie("log", {
+                    expires:new Date(Date.now() + 50000),
+                    httpOnly:true
+                })
 
                 registerUser.save()
                     .then(user => {

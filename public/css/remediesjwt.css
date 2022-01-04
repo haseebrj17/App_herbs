@@ -1,0 +1,846 @@
+html{
+    scroll-behavior: smooth;
+}
+
+:root{
+    --color-1: #00411D;
+    --color-2: #8CC640;
+    --color-3: #D6DE23;
+    --color-4: #272727;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins;
+    list-style: none;
+    text-decoration: none;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+    color: var(--color-1);
+}
+   
+body::-webkit-scrollbar-track {
+    background-color: var(--color-2);
+}
+   
+body::-webkit-scrollbar-thumb {
+    background-color: var(--color-1);
+    outline: 1px solid #8CC640;
+    border-radius: 8px;
+}
+
+/* ######## Fonts used ########   */
+
+@font-face{
+	font-family: poplight;
+	src: url(/Poppins/Poppins-Light.ttf);
+    font-display: swap;
+}
+
+@font-face{
+	font-family: popmedium;
+	src: url(/Poppins/Poppins-Medium.ttf);
+    font-display: swap;
+}
+
+@font-face{
+	font-family: popregular;
+	src: url(/Poppins/Poppins-Regular.ttf);
+    font-display: swap;
+}
+
+@font-face{
+	font-family: popbold;
+	src: url(/Poppins/Poppins-Bold.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: popthin;
+    src: url(/Poppins/Poppins-Thin.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: popsemibold;
+    src: url(/Poppins/Poppins-SemiBold.ttf);
+    font-display: swap;
+}
+
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.error{
+    width: 100%;
+    height: 30px;
+    background-color: var(--color-3);
+    color: var(--color-1);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    opacity: 90%;
+    transition: 0.6s ease;
+}
+
+.error .msg{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#dismiss{
+    position: absolute;
+    top: 20%;
+    right: 2%;
+    background: transparent;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.main-nav{
+	width: 100%;
+	background-color: transparent;
+}
+
+.brand-logo{
+    float: left;
+    height: 60px;
+    width: 80px;
+    margin-top: 10px;
+    margin-left: 34px;
+    background-image: url(../img/logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.brand-logo-txt{
+    float: left;
+    line-height: 15vh;
+    letter-spacing: 1px;
+    width: auto;
+    font-size: 32px;
+    color: var(--color-2);
+    display: inline;
+    font-style: italic;
+    margin-left: 25px;
+    font-family: poplight;
+}
+
+.main-nav-links{
+    float: right;
+}
+
+.main-nav ul li{ 
+    display: inline-block;
+ 	list-style-type: none;
+    margin-right: 10px;
+}
+
+.main-nav ul li a{
+    font-family: popregular;
+ 	text-decoration: none;
+ 	color: var(--color-2);
+ 	line-height: 100px;
+	padding: 20px 15px;
+	/*font-weight: bold;*/
+ 	font-size: 16px;
+ 	letter-spacing: 2px;
+ 	transition: 0.6s ease;
+}
+
+.main-nav ul li a:hover{
+ 	background-color: var(--color-2);
+ 	color: #fff;
+}
+
+.main-nav ul li.active a{
+ 	background-color: var(--color-2);
+ 	color: #fff;
+}
+
+#btntop{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: none;
+    background: var(--color-3);
+    box-shadow: 0 0 10px rgba(1,66,30,0.25);
+    color: var(--color-1);
+    outline: none;
+    transition: 0.6s ease;
+    z-index: 1;
+    cursor: pointer;
+}
+
+#btntop:hover{
+    background: var(--color-4);
+    color: var(--color-3);
+}
+
+#bthtop:active{
+    background: var(--color-4);
+    color: var(--color-3);
+}
+
+.remedieslanding{
+    width: 100%;
+    height: 654px;
+}
+
+.remedieslanding .bg{
+    width: 100%;
+    height: 654px;
+    background-image: linear-gradient(rgba(0, 65, 29, 1), rgba(0, 65, 29, 0.58));
+}
+
+.remedieslanding .bg .mainflexbox{
+    width: 100%;
+    height: 654px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.remedieslanding .bg .mainflexbox .flexbtnandtxt{
+    width: 50%;
+    height: 600px;
+    position: absolute;
+    left: 0%;
+    display: flex;
+    flex-direction: column;
+}
+
+.remedieslanding .bg .mainflexbox .flexbtnandtxt h1{
+    font-size: 38px;
+    font-family: popregular;
+    letter-spacing: 2px;
+    color: var(--color-2);
+    margin-left: 11.5%;
+    margin-bottom: 5%;
+}
+
+.remedieslanding .bg .mainflexbox .flexbtnandtxt .flexbtn{
+    width: 100%;
+    height: 190px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-left: 5%;
+}
+
+.remedieslanding .bg .mainflexbox .flexbtnandtxt .flexbtn .btnicon{
+    opacity: 100%;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+}
+
+.remedieslanding .bg .mainflexbox .flexbtnandtxt .flexbtn .btnicon:hover{
+    opacity: 80%;
+    cursor: pointer;
+}
+
+.remedieslanding .bg .mainflexbox .flexbtnandtxt .flexbtn .btn{
+    width: 160px;
+    height: 190px;
+    background-color: var(--color-2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.remedieslanding .bg .mainflexbox .flexbtnandtxt .flexbtn .btn .icon1{
+    width: 120px;
+    height: 121px;
+    background-image: url(../img/herbs1.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 17%;
+}
+
+.remedieslanding .bg .mainflexbox .flexbtnandtxt .flexbtn .btn .h1{
+    font-size: 27px;
+    color: var(--color-1);
+    margin-top: 90%;
+    transform: translateX(-10%);
+}
+
+.remedieslanding .bg .mainflexbox .flexbtnandtxt .flexbtn .btn .icon2{
+    width: 120px;
+    height: 121px;
+    background-image: url(../img/salad1.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 17%;
+}
+
+.remedieslanding .bg .mainflexbox .flexbtnandtxt .flexbtn .btn .h2{
+    font-size: 27px;
+    color: var(--color-1);
+    margin-top: 90%;
+    transform: translateX(-10%);
+}
+
+.remedieslanding .bg .mainflexbox .flexbtnandtxt .flexbtn .btn .icon3{
+    width: 120px;
+    height: 121px;
+    background-image: url(../img/stretchingexercise1.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 17%;
+}
+
+.remedieslanding .bg .mainflexbox .flexbtnandtxt .flexbtn .btn .h3{
+    font-size: 27px;
+    color: var(--color-1);
+    margin-top: 90%;
+    transform: translateX(-5%);
+}
+
+.remedieslanding .bg .mainflexbox .flexbtnandtxt h2{
+    font-size: 24px;
+    font-family: popregular;
+    letter-spacing: 1px;
+    color: var(--color-3);
+    margin-left: 11.5%;
+    margin-top: 60px;
+}
+
+.remedieslanding .bg .mainflexbox .fleximg{
+    width: 40%;
+    height: 400px;
+    position: absolute;
+    top: 25%;
+    right: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.remedieslanding .bg .mainflexbox .fleximg .gridimg1{
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    top: 0%;
+    display: flex;
+    flex-direction: row;
+}
+
+.remedieslanding .bg .mainflexbox .fleximg .gridimg1 .img1{
+    width: 50%;
+    height: 100%;
+    background-image: url(../img/rem1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.remedieslanding .bg .mainflexbox .fleximg .gridimg1 .img2{
+    width: 50%;
+    height: 100%;
+    background-image: url(../img/rem2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.remedieslanding .bg .mainflexbox .fleximg .gridimg2{
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    bottom: 0%;
+    display: flex;
+    flex-direction: row;
+}
+
+.remedieslanding .bg .mainflexbox .fleximg .gridimg2 .img3{
+    width: 50%;
+    height: 100%;
+    background-image: url(../img/rem3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.remedieslanding .bg .mainflexbox .fleximg .gridimg2 .img4{
+    width: 50%;
+    height: 100%;
+    background-image: url(../img/rem4.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.remsub1{
+    width: 100%;
+    height: 1308px;
+}
+
+.remsub1 .bgsub1{
+    width: 100%;
+    height: 1308px;
+    background-image: linear-gradient(rgba(140, 198, 64, 1), rgba(0, 65, 29, 1));
+}
+
+
+.remsub1 .bgsub1 .mainflexsub1{
+    width: 100%;
+    height: 1308px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.remsub1 .bgsub1 .mainflexsub1 .pictxt1{
+    width: 80%;
+    height: 500px;
+    background-image: linear-gradient(rgba(0, 65, 29, 1), rgba(0, 65, 29, 0.8));
+    position: relative;
+    top: 7%;
+}
+
+.remsub1 .bgsub1 .mainflexsub1 .pictxt1 .flexpictxt1{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex: row;
+}
+
+.remsub1 .bgsub1 .mainflexsub1 .pictxt1 .flexpictxt1 .pic1sub1{
+    width: 40%;
+    height: 500px;
+    position: absolute;
+    left: 0%;
+    background-image: url(../img/26.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.remsub1 .bgsub1 .mainflexsub1 .pictxt1 .flexpictxt1 .flextxt1sub1{
+    width: 55%;
+    height: 500px;
+    position: absolute;
+    right: 2.5%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.remsub1 .bgsub1 .mainflexsub1 .pictxt1 .flexpictxt1 .flextxt1sub1 h1{
+    font-size: 38px;
+    font-family: popbold;
+    letter-spacing: 1.5px;
+    color: var(--color-3);
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.remsub1 .bgsub1 .mainflexsub1 .pictxt1 .flexpictxt1 .flextxt1sub1 h2{
+    font-size: 15px;
+    font-family: popmedium;
+    color: var(--color-3);
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 21px;
+}
+
+
+.remsub1 .bgsub1 .mainflexsub1 .pictxt2{
+    width: 80%;
+    height: 500px;
+    position: relative;
+    bottom: 5%;
+    background-image: url(../img/15_1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.remsub1 .bgsub1 .mainflexsub1 .pictxt2 .box2sub1{
+    width: 380px;
+    height: 220px;
+    background-color: var(--color-2);
+    border-radius: 40px;
+    position: absolute;
+    top: 28%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.remsub1 .bgsub1 .mainflexsub1 .pictxt2 .box2sub1 .flexloginbox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.remsub1 .bgsub1 .mainflexsub1 .pictxt2 .box2sub1 .flexloginbox h1{
+    font-size: 24px;
+    font-family: popsemibold;
+    letter-spacing: 1px;
+    text-align: center;
+    color: var(--color-1);
+    position: relative;
+    top: 10%;
+}
+
+.remsub1 .bgsub1 .mainflexsub1 .pictxt2 .box2sub1 .flexloginbox .btnlogin{
+    font-size: 12px;
+    font-family: popsemibold;
+    letter-spacing: 1.5px;
+    padding: 16px 36px;
+    color: var(--color-2);
+    background-color: var(--color-1);
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 10px rgba(140, 198, 64, 0.25);
+    transition: 0.6s ease;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+}
+
+.remsub1 .bgsub1 .mainflexsub1 .pictxt2 .box2sub1 .flexloginbox .btnlogin:hover{
+    background-color: var(--color-4);
+    color: var(--color-3);
+}
+
+.remsub1 .bgsub1 .mainflexsub1 .pictxt2 .box2sub1 .flexloginbox .btnsignup{
+    font-size: 20px;
+    font-family: popsemibold;
+    letter-spacing: 1.5px;
+    color: var(--color-1);
+    transition: 0.6s ease;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    transform: translateX(-50%);
+}
+
+.remsub1 .bgsub1 .mainflexsub1 .pictxt2 .box2sub1 .flexloginbox .btnsignup:hover{
+    color: var(--color-3);
+}
+
+
+/*///////////////Footer style 1/////////////////*/
+
+/* 
+.footer{
+    width: 100%;
+    height: 400px;
+    position: relative;
+}
+
+.footer .footer1{
+    width: 100%;
+    height: 400px;
+    background-color: var(--color-1);
+    position: absolute;
+    left: 0%;
+    top: 0%;
+}
+
+.footer .footer1 .footercontent{
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    top: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer .footer1 .footercontent .footerlogo{
+    position: relative;
+    left: 5%;
+    height: 300px;
+}
+
+.footer .footer1 .footercontent .footerlogo h1{
+    font-size: 32px;
+    font-family: popregular;
+    color: var(--color-2);
+    letter-spacing: 1px;
+}
+
+.footer .footer1 .footercontent .footerlogo h3{
+    font-size: 20px;
+    font-family: popmedium;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    color: var(--color-2);
+    line-height: 25px;
+    margin-top: 50px;
+}
+
+.footer .footer1 .footercontent .footerlogo h2{
+    font-size: 27px;
+    font-family: popsemibold;
+    letter-spacing: 0.5px;
+    color: var(--color-2);
+    line-height: 25px;
+    margin-top: 20px;
+}
+
+.footer .footer1 .footercontent .explore{
+    position: relative;
+    height: 300px;
+}
+
+.footer .footer1 .footercontent .explore h1{
+    font-size: 32px;
+    font-family: popregular;
+    color: var(--color-2);
+    letter-spacing: 1px;
+}
+
+
+.footer .footer1 .footercontent .explore h2{
+    font-size: 20px;
+    font-family: popregular;
+    letter-spacing: 0.5px;
+    color: var(--color-2);
+    line-height: 25px;
+    margin-top: 15px;
+    transition: 0.6s ease;
+    cursor: pointer;
+}
+
+.footer .footer1 .footercontent .explore h2:hover{
+    color: var(--color-3);
+}
+
+.footer .footer1 .footercontent .policies{
+    position: relative;
+    right: 10%;
+    height: 300px;
+}
+
+.footer .footer1 .footercontent .policies h1{
+    font-size: 32px;
+    font-family: popregular;
+    color: var(--color-2);
+    letter-spacing: 1px;
+}
+
+.footer .footer1 .footercontent .policies h2{
+    font-size: 20px;
+    font-family: popregular;
+    letter-spacing: 0.5px;
+    color: var(--color-2);
+    line-height: 25px;
+    margin-top: 15px;
+    transition: 0.6s all;
+    cursor: pointer;
+}
+
+.footer .footer1 .footercontent .policies h2:hover{
+    color: var(--color-3);
+}
+
+.footer .footer2{
+    width: 100%;
+    height: 50px;
+    background-color: var(--color-2);
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+}
+
+.footer .footer2 h1{
+    font-family: popbold;
+    font-size: 15px;
+    color: var(--color-1);
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    bottom: 25%;
+    transform: translateX(-50%);
+}
+
+#copyrightbtn{
+    color: var(--color-1);
+    transition: 0.6s ease;
+    font-family: popbold;
+    font-size: 15px;
+}
+
+#copyrightbtn:hover{
+    color: var(--color-3);
+} */
+
+
+
+/*///////////////////Footer Style 2///////////////////*/
+
+
+
+
+.footer{
+    width: 100%;
+    height: 400px;
+    position: relative;
+}
+
+.footer .footer1{
+    width: 100%;
+    height: 400px;
+    background-color: var(--color-2);
+    position: absolute;
+    left: 0%;
+    top: 0%;
+}
+
+.footer .footer1 .footercontent{
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    top: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer .footer1 .footercontent .footerlogo{
+    position: relative;
+    left: 5%;
+    height: 300px;
+}
+
+.footer .footer1 .footercontent .footerlogo h1{
+    font-size: 32px;
+    font-family: popregular;
+    color: var(--color-1);
+    letter-spacing: 1px;
+}
+
+.footer .footer1 .footercontent .footerlogo h3{
+    font-size: 20px;
+    font-family: popmedium;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    color: var(--color-1);
+    line-height: 25px;
+    margin-top: 50px;
+}
+
+.footer .footer1 .footercontent .footerlogo h2{
+    font-size: 27px;
+    font-family: popsemibold;
+    letter-spacing: 0.5px;
+    color: var(--color-1);
+    line-height: 25px;
+    margin-top: 20px;
+}
+
+.footer .footer1 .footercontent .explore{
+    position: relative;
+    height: 300px;
+}
+
+.footer .footer1 .footercontent .explore h1{
+    font-size: 32px;
+    font-family: popregular;
+    color: var(--color-1);
+    letter-spacing: 1px;
+}
+
+
+.footer .footer1 .footercontent .explore h2{
+    font-size: 20px;
+    font-family: popregular;
+    letter-spacing: 0.5px;
+    color: var(--color-1);
+    line-height: 25px;
+    margin-top: 15px;
+    transition: 0.6s ease;
+    cursor: pointer;
+}
+
+.footer .footer1 .footercontent .explore h2:hover{
+    color: var(--color-3);
+}
+
+.footer .footer1 .footercontent .policies{
+    position: relative;
+    right: 10%;
+    height: 300px;
+}
+
+.footer .footer1 .footercontent .policies h1{
+    font-size: 32px;
+    font-family: popregular;
+    color: var(--color-1);
+    letter-spacing: 1px;
+}
+
+.footer .footer1 .footercontent .policies h2{
+    font-size: 20px;
+    font-family: popregular;
+    letter-spacing: 0.5px;
+    color: var(--color-1);
+    line-height: 25px;
+    margin-top: 15px;
+    transition: 0.6s all;
+    cursor: pointer;
+}
+
+.footer .footer1 .footercontent .policies h2:hover{
+    color: var(--color-3);
+}
+
+.footer .footer2{
+    width: 100%;
+    height: 50px;
+    background-color: var(--color-1);
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+}
+
+.footer .footer2 h1{
+    font-family: popbold;
+    font-size: 15px;
+    color: var(--color-2);
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    bottom: 25%;
+    transform: translateX(-50%);
+}
+
+#copyrightbtn{
+    color: var(--color-2);
+    transition: 0.6s ease;
+    font-family: popbold;
+    font-size: 15px;
+}
+
+#copyrightbtn:hover{
+    color: var(--color-3);
+}

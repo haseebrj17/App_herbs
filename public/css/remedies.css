@@ -549,7 +549,7 @@ body{
 
 /*///////////////Footer style 1/////////////////*/
 
-/* 
+ 
 .footer{
     width: 100%;
     height: 400px;
@@ -692,14 +692,14 @@ body{
 
 #copyrightbtn:hover{
     color: var(--color-3);
-} */
+}
 
 
 
 /*///////////////////Footer Style 2///////////////////*/
 
 
-
+/*
 
 .footer{
     width: 100%;
@@ -844,3 +844,4 @@ body{
 #copyrightbtn:hover{
     color: var(--color-3);
 }
+*/

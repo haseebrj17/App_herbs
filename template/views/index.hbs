@@ -34,10 +34,29 @@
                         <div class="title">
                             <h1>Herbs Of Life</h1>
                             <p>Life is not merely to be <span style="font-size: 40px; font-family: popregular;">Alive, </span><br>but to be <span style="font-size: 40px; font-family: popregular;">Well.</span></p>
-                            <a href="/Logout.html" class="btn">Get More</a>
-                            <a href="#" class="btn">Watch Video</a>
+                            <a data-popup-target="#popupgetmore" class="btn">Get More</a>
+                            <a data-popup-target="#popupvideo" class="btn">Watch Video</a>
                         </div>
                     </div>
+                    <div class="popup" id="popupgetmore">
+                        <div class="popupgetmore">
+                            <div class="picgetmore"></div>
+                            <div class="getmoreflexbox">
+                                <h1 class="popuptitle">A Bit More About Us</h1>
+                                <button data-close-button class="close-popup-getmore">&times;</button>
+                            </div>
+                        </div>
+                        <p1 class="popupbody">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p1>
+                    </div>
+                    <div class="popup" id="popupvideo">
+                        <div id="popupvideohome">
+                            <button data-close-button id="close-popup-video">&times;</button>
+                            <div id="videohome">
+                                <video id="video" width="100%" height="100%" src="video/production ID_4441000.mp4" autoplay loop disablePictureInPicture><source src="../../public/video/c1.mp4" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="overlay"></div>
                 </div>
             </div>
         </section>
@@ -76,8 +95,8 @@
                     </div>
                     <div class="policies">
                         <h1>Legal</h1>
-                        <a href="https://privacyterms.io/view/pyElS87R-P1oWe1Pq-yyeNIP/#"><h2>Privacy policy</h2></a>
-                        <a href="https://www.termsfeed.com/live/639aa683-92af-4db2-ab3f-37f7cfd11718"><h2>Terms & Conditions</h2></a>
+                        <a href="/PrivacyPolicy.html"><h2>Privacy policy</h2></a>
+                        <a href="/Termscondition.html"><h2>Terms & Conditions</h2></a>
                         {{!-- <a href="#"><h2>Guidelines</h2></a> --}}
                     </div>
                 </div>
@@ -106,6 +125,44 @@
         btntop2.addEventListener("click", function () {
             window.scrollTo(0, 0);
         });
+    </script>
+    <script>
+        const openPopUp = document.querySelectorAll('[data-popup-target]');
+        const closePopUp = document.querySelectorAll('[data-close-button]');
+        const overlay = document.getElementById('overlay');
+
+        openPopUp.forEach(button => {
+            button.addEventListener('click', () => {
+                const popup = document.querySelector(button.dataset.popupTarget)
+                openPopup(popup)
+            })
+        })
+
+        overlay.addEventListener('click', () => {
+            const popups = document.querySelectorAll('.popup.active')
+            popups.forEach(popup => {
+                closePopup(popup)
+            })
+        })
+
+        closePopUp.forEach(button => {
+            button.addEventListener('click', () => {
+                const popup = button.closest('.popup')
+                closePopup(popup)
+            })
+        })
+
+        function openPopup(popup) {
+            if (popup == null) return
+            popup.classList.add('active')
+            overlay.classList.add('active')
+        }
+
+        function closePopup(popup) {
+            if (popup == null) return
+            popup.classList.remove('active')
+            overlay.classList.remove('active')
+        }
     </script>
 </body>
 </html>

@@ -308,10 +308,155 @@ body{
     margin-top: 15px;
     transition: 0.6s ease;
     box-shadow: 0 0 10px rgba(1,66,30,0.25);
+    cursor: pointer;
 }
 
 .slider .title .btn:hover{
     background-color: #272727;
+    color: var(--color-2);
+}
+
+.popup {
+    width: 70%;
+    max-width: 80%;
+    height: 450px;
+    position: fixed;
+    transition: 200ms ease-in;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.popup.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup .popupgetmore {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: var(--color-2);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.popup .popupgetmore .picgetmore {
+    width: 100%;
+    height: 25%;
+    background-image: linear-gradient(30deg, rgba(190, 190, 190, 0.5), rgba(190, 190, 190, 0.5), rgba(190, 190, 190, 0.5), rgba(190, 190, 190, 0.5)), url(../img/16.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.popup .popupgetmore .getmoreflexbox {
+    position: absolute;
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.popup .popupgetmore .popuptitle {
+    position: relative;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-25%);
+    font-size: 35px;
+    font-family: popbold;
+    color: var(--color-1);
+}
+
+.popup .popupgetmore .close-popup-getmore{
+    position: relative;
+    right: 2.5%;
+    font-size: 30px;
+    font-family: popbold;
+    color: var(--color-1);
+    background-color: transparent;
+    border: none;
+    box-sizing: 5px 5px 5px 5px;
+    transition: 0.6s ease;
+    cursor: pointer;
+}
+
+.popup .popupgetmore .close-popup:hover {
+    color: var(--color-2);
+}
+
+.popup .popupbody {
+    position: absolute;
+    top: 33%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 70%;
+    font-size: 18px;
+    font-family: popmedium;
+    color: var(--color-1);
+    text-align: start;
+}
+
+#overlay{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    transition: 200ms ease-in;
+    z-index: 9;
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#popupvideohome {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: transparent;
+    transition: 200ms ease-in;
+    z-index: 11;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#videohome{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    overflow: hidden;
+    background-size: contain;
+    overflow: hidden;
+}
+
+#close-popup-video {
+    position: absolute;
+    right: 8%;
+    top: 1%;
+    font-size: 30px;
+    font-family: popbold;
+    color: var(--color-1);
+    background-color: transparent;
+    border: none;
+    box-sizing: 5px 5px 5px 5px;
+    transition: 0.6s ease;
+    cursor: pointer;
+    z-index: 4;
+}
+
+#close-popup-video:hover {
     color: var(--color-2);
 }
 

@@ -8,16 +8,11 @@
             <li><a href="/">Home</a></li>
             <li><a href="Remedies.html">Remedies</a></li>
             <li><a href="Contact.html">Contact Us</a></li>
-            <li><a href="Login.html">Login</a></li>
-            {{!-- <li class="user"><a href="Login.html">User</a>
-                <div class="dd">
-                    <div class="box">
-                        <ul>
-                            <li><a href="/Logout">Logout</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </li> --}}
+            {{# if loggedin}}
+                <li><a href="Logout.html">Logout</a></li>
+            {{else}}
+                <li><a href="Login.html">Login</a></li>
+            {{/if}}
         </ul>
     </nav>
     <script>
