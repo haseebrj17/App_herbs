@@ -61,15 +61,15 @@ app.use((req, res, next) =>{
 
 // NavBar middleware
 
-const logData = {loggedin: false};
+var logData = {loggedin: false};
 
 //ROUTES
 
 app.get('/', (req, res) =>{
-    if (!req.cookies.log && !req.cookies.keyrem) {
+    if (req.cookies.log && req.cookies.keyrem) {
+        logData.loggedin = true;
         res.render('index.hbs', logData);
     } else {
-        logData.loggedin = true;
         res.render('index.hbs', logData);
     }
 });
