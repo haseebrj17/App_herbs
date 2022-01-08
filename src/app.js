@@ -53,6 +53,13 @@ app.use(session({
 
 // Flash messages middleware
 
+// app.use((req, res, next) => {
+//     if (req.cookies.loglog && !req.cookies.keyrem) {
+//         res.clearCookie('loglog');        
+//     }
+//     next();
+// });
+
 app.use((req, res, next) =>{
     res.locals.message = req.session.message
     delete req.session.message
@@ -61,16 +68,17 @@ app.use((req, res, next) =>{
 
 // NavBar middleware
 
-var logData = {loggedin: false};
+var logData = {loggedin: false, errorcomment: "Page cannot be found"};
 
 //ROUTES
 
 app.get('/', (req, res) =>{
-    if (req.cookies.log && req.cookies.keyrem) {
+    if (req.cookies.keyrem && req.cookies.log) {
         logData.loggedin = true;
-        res.render('index.hbs', logData);
+        res.render('index.hbs', logData)
     } else {
-        res.render('index.hbs', logData);
+        logData.loggedin = false;
+        res.render('index.hbs', logData)
     }
 });
 
@@ -83,29 +91,39 @@ app.get('/Termscondition.html', (req, res) =>{
 });
 
 app.get('/Remedies.html', auth , (req, res) =>{
+    logData.loggedin = true;
     req.session.message = {
         type: 'Sucess',
         intro: 'Welcome  ',
         message: 'this is the member only area! Enjoy'
     }
-    res.render('remediesjwt.hbs')
+    res.render('remediesjwt.hbs', logData)
     delete req.session.message
 });
 
 app.get('/Remedies.html/*', (req, res) =>{
-    res.render('404.hbs', {
-        errorcomment: "Page cannot be found in Remedies"
-    })
+    res.render('404.hbs', logData)
 });
 
+
 app.get('/Contact.html', (req, res) =>{
-    res.render('contactus.hbs')
+    if (req.cookies.keyrem && req.cookies.log) {
+        logData.loggedin = true;
+        res.render('contactus.hbs', logData)
+    } else {
+        logData.loggedin = false;
+        res.render('contactus.hbs', logData)
+    }
 });
 
 app.get('/Contact.html/*', (req, res) =>{
-    res.render('404.hbs', {
-        errorcomment: "Page cannot be found in Contact"
-    })
+    if (req.cookies.keyrem && req.cookies.log) {
+        logData.loggedin = true;
+        res.render('404.hbs', logData)
+    } else {
+        logData.loggedin = false;
+        res.render('404.hbs', logData)
+    }
 });
 
 app.post('/Contact.html', (req, res) =>{
@@ -162,17 +180,33 @@ app.post('/Contact.html', (req, res) =>{
 });
 
 app.get('/Login.html', (req, res) =>{
-    res.render('login.hbs')
+    if (req.cookies.keyrem && req.cookies.log) {
+        logData.loggedin = true;
+        res.render('login.hbs', logData)
+    } else {
+        logData.loggedin = false;
+        res.render('login.hbs', logData)
+    }
 });
 
 app.get('/Login.html/*', (req, res) =>{
-    res.render('404.hbs', {
-        errorcomment: "Page cannot be found in Login"
-    })
+    if (req.cookies.keyrem && req.cookies.log) {
+        logData.loggedin = true;
+        res.render('404.hbs', logData)
+    } else {
+        logData.loggedin = false;
+        res.render('404.hbs', logData)
+    }
 });
 
 app.get('/Login.html/Register.html', (req, res) =>{
-    res.render('register.hbs')
+    if (req.cookies.keyrem && req.cookies.loglog) {
+        logData.loggedin = true;
+        res.render('register.hbs', logData)
+    } else {
+        logData.loggedin = false;
+        res.render('register.hbs', logData)
+    }
 });
 
 app.post('/Login.html', async (req, res) =>{
@@ -190,12 +224,13 @@ app.post('/Login.html', async (req, res) =>{
             res.cookie("keyrem", token, {
                 expires:new Date(Date.now() + 5000000),
                 httpOnly:true,
-                // secure:true
+                secure:true
             });
 
             res.cookie("log", 0, {
                 expires:new Date(Date.now() + 5000000),
-                httpOnly:true
+                httpOnly:true,
+                secure:true
             })
 
             if(validpass) {
@@ -244,10 +279,6 @@ app.get('/Logout.html', auth , async (req, res) =>{
         res.clearCookie("keyrem");
 
         res.clearCookie("log");
-        
-        // res.cookie("keyrem", 0, {maxAge:0})
-
-        // res.cookie("log", 0, {maxAge:0});
 
         console.log("Logged out sucessfully");
 
@@ -273,10 +304,16 @@ app.get('/Logout.html', auth , async (req, res) =>{
 });
 
 app.get('/Register.html', (req, res) =>{
-    res.render('register.hbs')
+    if (req.cookies.keyrem && req.cookies.log) {
+        logData.loggedin = true;
+        res.render('register.hbs', logData)
+    } else {
+        logData.loggedin = false;
+        res.render('register.hbs', logData)
+    }
 });
 
-//Creating a new used in DB
+//Creating a new user in DB
 
 app.post('/Register.html', async (req, res) => {
     
@@ -337,8 +374,8 @@ app.post('/Register.html', async (req, res) => {
                 
                 res.cookie("keyrem", token, {
                     expires:new Date(Date.now() + 50000),
-                    httpOnly:true
-                    // secure:true
+                    httpOnly:true,
+                    secure:true
                 });
 
                 res.cookie("log", {
@@ -393,15 +430,14 @@ app.get('/Login.html/Remedies.html', (req, res) =>{
 });
 
 app.get('*', (req, res) =>{
-    res.render('404.hbs', {
-        errorcomment: "OPSSSS! nothing found here!"
-    })
+    if (req.cookies.keyrem && req.cookies.log) {
+        logData.loggedin = true;
+        res.render('404.hbs', logData)
+    } else {
+        logData.loggedin = false;
+        res.render('404.hbs', logData)
+    }
 });
-
-
-///Active Directory Navbar Highlight///
-
-
 
 //Server live realod for updating HTML and CSS files in browser, only for development session
 

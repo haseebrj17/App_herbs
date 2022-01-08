@@ -167,7 +167,7 @@ body{
  	color: #fff;
 }
 
-.main-nav ul li.active a{
+.main-nav ul li a.active{
  	background-color: var(--color-2);
  	color: #fff;
 }
