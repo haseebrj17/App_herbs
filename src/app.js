@@ -53,13 +53,6 @@ app.use(session({
 
 // Flash messages middleware
 
-// app.use((req, res, next) => {
-//     if (req.cookies.loglog && !req.cookies.keyrem) {
-//         res.clearCookie('loglog');        
-//     }
-//     next();
-// });
-
 app.use((req, res, next) =>{
     res.locals.message = req.session.message
     delete req.session.message
@@ -299,7 +292,6 @@ app.get('/Logout.html', auth , async (req, res) =>{
             intro: 'Something went wrong ',
             message: 'please try again later'
         }
-        
     }
 });
 
@@ -343,7 +335,7 @@ app.post('/Register.html', async (req, res) => {
             }
             res.redirect('/Register.html')
             delete req.session.message
-        } 
+        }
         else if(registerUser.password.length < 6) {
             req.session.message = {
                 type: 'Danger',
