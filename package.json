@@ -4,7 +4,7 @@
   "description": "Dynamic App for ITGS IA IBDP 2020-2021",
   "main": "app.js",
   "scripts": {
-    "start": "node /src/app.js",
+    "start": "node src/app.js",
     "dev": "nodemon src/app.js"
   },
   "author": "Seeb_RJ17",
