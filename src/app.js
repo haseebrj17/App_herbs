@@ -364,16 +364,16 @@ app.post('/Register.html', async (req, res) => {
                 const token = await registerUser.generateAuthToken()
                 console.log(token);
                 
-                res.cookie("keyrem", token, {
-                    expires:new Date(Date.now() + 50000),
-                    httpOnly:true,
-                    secure:true
-                });
+//                 res.cookie("keyrem", token, {
+//                     expires:new Date(Date.now() + 50000),
+//                     httpOnly:true,
+//                     secure:true
+//                 });
 
-                res.cookie("log", {
-                    expires:new Date(Date.now() + 50000),
-                    httpOnly:true
-                })
+//                 res.cookie("log", {
+//                     expires:new Date(Date.now() + 50000),
+//                     httpOnly:true
+//                 })
 
                 registerUser.save()
                     .then(user => {
