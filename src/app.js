@@ -225,7 +225,6 @@ app.post('/Login.html', async (req, res) =>{
                     httpOnly:true,
                     secure:true
                 });
-                
 
                 res.cookie("log", 0, {
                     expires:new Date(Date.now() + 5000000),
