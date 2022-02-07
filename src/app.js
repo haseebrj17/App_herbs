@@ -71,7 +71,7 @@ var logData = {loggedIn: false, errorComment: "Page cannot be found"};
 //ROUTES
 
 app.get('/', (req, res) =>{
-    if (req.cookies.keyrem && req.cookies.log) {
+    if (req.cookies.keyrem) {
         logData.loggedIn = true;
         res.render('index.hbs', logData)
     } else {
@@ -105,7 +105,7 @@ app.get('/Remedies.html/*', (req, res) =>{
 
 
 app.get('/Contact.html', (req, res) =>{
-    if (req.cookies.keyrem && req.cookies.log) {
+    if (req.cookies.keyrem) {
         logData.loggedIn = true;
         res.render('contactus.hbs', logData)
     } else {
@@ -115,7 +115,7 @@ app.get('/Contact.html', (req, res) =>{
 });
 
 app.get('/Contact.html/*', (req, res) =>{
-    if (req.cookies.keyrem && req.cookies.log) {
+    if (req.cookies.keyrem) {
         logData.loggedIn = true;
         res.render('404.hbs', logData)
     } else {
@@ -178,7 +178,7 @@ app.post('/Contact.html', (req, res) =>{
 });
 
 app.get('/Login.html', (req, res) =>{
-    if (req.cookies.keyrem && req.cookies.log) {
+    if (req.cookies.keyrem) {
         logData.loggedIn = true;
         res.render('login.hbs', logData)
     } else {
@@ -188,7 +188,7 @@ app.get('/Login.html', (req, res) =>{
 });
 
 app.get('/Login.html/*', (req, res) =>{
-    if (req.cookies.keyrem && req.cookies.log) {
+    if (req.cookies.keyrem) {
         logData.loggedIn = true;
         res.render('404.hbs', logData)
     } else {
@@ -198,7 +198,7 @@ app.get('/Login.html/*', (req, res) =>{
 });
 
 app.get('/Login.html/Register.html', (req, res) =>{
-    if (req.cookies.keyrem && req.cookies.loglog) {
+    if (req.cookies.keyrem) {
         logData.loggedIn = true;
         res.render('register.hbs', logData)
     } else {
@@ -226,12 +226,6 @@ app.post('/Login.html', async (req, res) =>{
                     secure:true
                 });
 
-                
-                res.cookie("log", 0, {
-                    expires:new Date(Date.now() + 5000000),
-                    httpOnly:true,
-                    secure:true
-                })
                 req.session.message = {
                     type: 'Success',
                     intro: 'Login successful ',
@@ -276,8 +270,6 @@ app.get('/Logout.html', auth , async (req, res) =>{
 
         res.clearCookie("keyrem");
 
-        res.clearCookie("log");
-
         console.log("Logged out successfully");
 
         await req.user.save();
@@ -301,7 +293,7 @@ app.get('/Logout.html', auth , async (req, res) =>{
 });
 
 app.get('/Register.html', (req, res) =>{
-    if (req.cookies.keyrem && req.cookies.log) {
+    if (req.cookies.keyrem) {
         logData.loggedIn = true;
         res.render('register.hbs', logData)
     } else {
@@ -416,7 +408,7 @@ app.get('/Login.html/Remedies.html', (req, res) =>{
 });
 
 app.get('*', (req, res) =>{
-    if (req.cookies.keyrem && req.cookies.log) {
+    if (req.cookies.keyrem) {
         logData.loggedIn = true;
         res.render('404.hbs', logData)
     } else {
