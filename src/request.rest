@@ -1,8 +1,7 @@
-POST http://localhost:3000/Register.html
+POST http://localhost:3000/Login.html
 content-type: application/json
 
 {
-    "name": "haseeb",
     "email": "anything@lol",
     "password": "123456"
 }

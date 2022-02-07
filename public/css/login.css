@@ -84,7 +84,7 @@ body{
 
 .error{
     width: 100%;
-    height: 30px;
+    height: 43px;
     background-color: var(--color-3);
     color: var(--color-1);
     text-align: center;
@@ -96,8 +96,9 @@ body{
 
 .error .msg{
     position: absolute;
-    top: 20%;
+    top: 35%;
     left: 50%;
+    font-size: 15px;
     transform: translateX(-50%);
 }
 

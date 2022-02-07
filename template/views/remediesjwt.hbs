@@ -19,7 +19,7 @@
 <body>
     {{#if message}}
     <div style="text-align: center;" id="error" class="error alert{{message.type}}">
-        <a style="cursor: pointer;" type="button" class="close" id="dismiss" value="Remove" onclick="removeDiv(this)"><img style="width: 10px; height: 10px;" type="image/svg" src="fonts/svg/cross-sign.svg" alt="cross"></a>
+        <a style="cursor: pointer;" type="button" class="close" id="dismiss" value="Remove" onclick="removeDiv(this)"><img style="width: 1rem; height: 1rem;" type="image/svg" src="fonts/svg/cross-sign.svg" alt="cross"></a>
         <div class="msg"><strong>{{message.intro}}</strong> {{message.message}}</div>
     </div>
     {{/if}}
@@ -32,7 +32,7 @@
                 <div class="flexbtnandtxt">
                     <h1>Discover New Remedies</h1>
                     <div class="flexbtn">
-                        <a href="#" class="btnicon"> 
+                        <a href="#remsub1" class="btnicon">
                             <div class="btn">
                                 <div class="icon1"></div>
                                 <h1 class="h1">Herbs</h1>
@@ -47,11 +47,11 @@
                         <a href="#" class="btnicon">
                             <div class="btn">
                                 <div class="icon3"></div>
-                                <h1 class="h3">Exrecise</h1>
+                                <h1 class="h3">Exercise</h1>
                             </div>
-                        </a>                        
+                        </a>                       
                     </div>
-                    <h2>By joining you can benefit by getting <br>access to the best secrets for living a <br>healthy life.</h2>
+                    <h2>Welcome to A’ashab-ul-Hayyat Memeber <br>only area here you can check out the best <br>remedies and secrets for a healthy life. <br> Scroll Down</h2>
                 </div>
                 <div class="fleximg">
                     <div class="gridimg1">
@@ -66,7 +66,7 @@
             </div>
         </div>
     </section>
-    <section class="remsub1">
+    <section id="remsub1" class="remsub1">
         <div class="bgsub1">
             <div class="mainflexsub1">
                 <div class="pictxt1">
@@ -74,11 +74,21 @@
                         <div class="pic1sub1"></div>
                         <div class="flextxt1sub1">
                             <h1>Echinacea</h1>
-                            <h2>Echinacea, or coneflower, is a flowering plant and popular herbal remedy. Originally from North America, it has long been used in Native American practices to treat a variety of ailments, including wounds, burns, toothaches, sore throat, and upset stomach (2Trusted Source). Most parts of the plant, including the leaves, petals, and roots, can be used medicinally — though many people believe the roots have the strongest effect. Echinacea is usually taken as a tea or supplement but can also be applied topically. Today, it’s primarily used to treat or prevent the common cold, though the science behind this isn’t particularly strong. One review in over 4,000 people found a potential 10–20% reduced risk of colds from taking echinacea, but there’s little to no evidence that it treats the cold after you have caught it (3Trusted Source). Though insufficient data exists to evaluate the long-term effects of this herb, short-term use is generally considered safe. That said, side effects like nausea, stomach pain, and skin rash have occasionally been reported (4Trusted Source). You can find echinacea in most supermarkets and health food stores, though you can also buy it online.</h2>
+                            <h2>Echinacea, or coneflower, is a flowering plant and popular herbal remedy. Originally from North America, it has long been used in Native American practices to treat a variety of ailments, including wounds, burns, toothaches, sore throat, and upset stomach. Most parts of the plant, including the leaves, petals, and roots, can be used medicinally — though many people believe the roots have the strongest effect. Echinacea is usually taken as a tea or supplement but can also be applied topically. Today, it’s primarily used to treat or prevent the common cold, though the science behind this isn’t particularly strong. One review in over 4,000 people found a potential 10–20% reduced risk of colds from taking echinacea, but there’s little to no evidence that it treats the cold after you have caught it. Though insufficient data exists to evaluate the long-term effects of this herb, short-term use is generally considered safe. That said, side effects like nausea, stomach pain, and skin rash have occasionally been reported. You can find echinacea in most supermarkets and health food stores, though you can also buy it <a id="hlginseng" href="https://www.amazon.com/s?k=echinacea&language=en_US&correlationId=07fc18d6-e5af-4e8c-b8cf-cb77a908bbc3&linkCode=ll2&linkId=e56b2f002434f0f4be2c794ae9219e88&tag=nutrition-herbal-medicine-20&ref=nb_sb_noss_1" target="blank">online</a>.</h2>
                         </div>
                     </div>
                 </div>
                 <div class="pictxt2">
+                    <div class="flexpictxt1">
+                        <div class="pic1sub1"></div>
+                        <div class="flextxt1sub1">
+                            <h1>Ginseng</h1>
+                            <h2>Ginseng is a medicinal plant whose roots are usually steeped to make a tea or dried to make a powder. It’s frequently utilized in traditional Chinese medicine to reduce inflammation and boost immunity, brain function, and energy levels. Several varieties exist, but the two most popular are the Asian and American types — Panax ginseng and Panax quinquefolius, respectively. American ginseng is thought to cultivate relaxation, while Asian ginseng is considered more stimulating. Although ginseng has been used for centuries, modern research supporting its efficacy is lacking. Several test-tube and animal studies suggest that its unique compounds, called ginsenosides, boast neuroprotective, anticancer, antidiabetes, and immune-supporting properties. Nonetheless, human research is needed. Short-term use is considered relatively safe, but ginseng’s long-term safety remains unclear. Potential side effects include headaches, poor sleep, and digestive issues. Ginseng is available at most health food stores, as well as <a id="hlginseng" href="https://www.amazon.com/s?k=ginseng&language=en_US&correlationId=cae1d3ee-a530-4c5a-8d30-818733d30163&linkCode=ll2&linkId=94e074f1d5f3552cf38f61027c6fd011&tag=nutrition-herbal-medicine-20&ref=nb_sb_noss_2" target="blank">online</a>.</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                {{!-- <div class="pictxt2">
                     <div class="flexpictxt2">
                         <div class="pic2"></div>sub2
                         <div class="flextxtsub1">
@@ -86,37 +96,41 @@
                             <h2>Heelllloooooo!!!!!!!!</h2>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
-        <section class="footer">
-            <div class="footer1">
-                <div class="footercontent">
-                    <div class="footerlogo">
-                        <h1>A’ashab-ul-Hayyat</h1>
-                        <h3>"The art of healing comes from nature, <br>not from the physician."</h3>
-                        <h2>-Paracelsus</h2>
-                    </div>
-                        <div class="explore">
-                        <h1>Explore</h1>
-                        <a href="/"><h2>Home</h2></a>
-                        <a id="rembtntop2"><h2>Remedies</h2></a>
-                        <a href="Contact.html"><h2>Contact Us</h2></a>
-                        <a href="Login.html"><h2>Login</h2></a>
-                    </div>
-                    <div class="policies">
-                        <h1>Legal</h1>
-                        <a href="/PrivacyPolicy.html"><h2>Privacy policy</h2></a>
-                        <a href="/Termscondition.html"><h2>Terms & Conditions</h2></a>
-                        {{!-- <a href="#"><h2>Guidelines</h2></a> --}}
-                    </div>
+    
+    <section id="remsub2" class="remsub2">
+        
+    </section>
+    <section class="footer">
+        <div class="footer1">
+            <div class="footercontent">
+                <div class="footerlogo">
+                    <h1>A’ashab-ul-Hayyat</h1>
+                    <h3>"The art of healing comes from nature, <br>not from the physician."</h3>
+                    <h2>-Paracelsus</h2>
+                </div>
+                    <div class="explore">
+                    <h1>Explore</h1>
+                    <a href="/"><h2>Home</h2></a>
+                    <a id="rembtntop2"><h2>Remedies</h2></a>
+                    <a href="Contact.html"><h2>Contact Us</h2></a>
+                    <a href="Login.html"><h2>Login</h2></a>
+                </div>
+                <div class="policies">
+                    <h1>Legal</h1>
+                    <a href="/PrivacyPolicy.html"><h2>Privacy policy</h2></a>
+                    <a href="/Termscondition.html"><h2>Terms & Conditions</h2></a>
+                    {{!-- <a href="#"><h2>Guidelines</h2></a> --}}
                 </div>
             </div>
-            <div class="footer2">
-                <h1>2021 &copy; <a href="https://github.com/haseebrj17" id="copyrightbtn" target="_blank">Seeb_RJ17</a> | Created by Haseeb Rajpoot</h1>
-            </div>
-        </section>
+        </div>
+        <div class="footer2">
+            <h1>2021 &copy; <a href="https://github.com/haseebrj17" id="copyrightbtn" target="_blank">Seeb_RJ17</a> | Created by Haseeb Rajpoot</h1>
+        </div>
+    </section>
     </main>
     <script>
         function removeDiv(btnstate){
