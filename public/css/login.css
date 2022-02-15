@@ -102,7 +102,7 @@ body{
     transform: translateX(-50%);
 }
 
-#dismiss{
+.error .close{
     position: absolute;
     top: 20%;
     right: 2%;

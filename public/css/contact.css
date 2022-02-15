@@ -94,6 +94,15 @@ body{
     transition: 0.6s ease;
 }
 
+.error .close{
+    position: absolute;
+    top: 30%;
+    right: 2%;
+    background: transparent;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 .error .msg{
     position: absolute;
     top: 20%;
@@ -101,16 +110,6 @@ body{
     font-size: 15px;
     transform: translateX(-50%);
 }
-
-#dismiss{
-    position: absolute;
-    top: 35%;
-    right: 2%;
-    background: transparent;
-    background-color: transparent;
-    cursor: pointer;
-}
-
 
 .main-nav{
 	width: 100%;

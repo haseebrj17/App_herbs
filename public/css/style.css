@@ -705,20 +705,20 @@ body{
     transition: 0.6s ease;
 }
 
-.error .msg{
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-#dismiss{
+.error .close{
     position: absolute;
     top: 20%;
     right: 2%;
     background: transparent;
     background-color: transparent;
     cursor: pointer;
+}
+
+.error .msg{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .main-nav{

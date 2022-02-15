@@ -89,21 +89,21 @@ body{
     transition: 0.6s ease;
 }
 
-.error .msg{
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    font-size: 15px;
-    transform: translateX(-50%);
-}
-
-#dismiss{
+.error .close{
     position: absolute;
     top: 35%;
     right: 2%;
     background: transparent;
     background-color: transparent;
     cursor: pointer;
+}
+
+.error .msg{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    font-size: 15px;
+    transform: translateX(-50%);
 }
 
 .main-nav{

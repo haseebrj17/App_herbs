@@ -103,7 +103,6 @@ app.get('/Remedies.html/*', (req, res) =>{
     res.render('404.hbs', logData)
 });
 
-
 app.get('/Contact.html', (req, res) =>{
     if (req.cookies.keyrem) {
         logData.loggedIn = true;

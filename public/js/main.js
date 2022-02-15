@@ -1,6 +1,7 @@
-const btntop = document.querySelector("#btntop");
+// import smoothscroll from 'smoothscroll-polyfill';
+// // or if linting/typescript complains
+// import * as smoothscroll from 'smoothscroll-polyfill';
 
-btntop.addEventListener("click", function () {
-    window.scrollTo(0, 0);
-});
+// // kick off the polyfill!
+// smoothscroll.polyfill();
 
