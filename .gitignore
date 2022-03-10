@@ -3,3 +3,5 @@ package-lock.json
 node_modules
 root.pdf
 root.xlsx
+herbsoflife.csr
+herbsoflife.key
