@@ -6,12 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/remediesjwt.css">
-    <link rel="stylesheet" href="css/master.css">
     <link rel="shortcut icon" type="image/svg" href="fonts/svg/logo1.svg"/>
-    <script defer src="/node_modules/swup/dist/swup.min.js"></script>
-    <script defer src="js/script.js"></script>
     <script>
-        document.write('<script src="https://' + (location.host || 'localhost').split(':')[0] +
+        document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
         ':35729/livereload.js?snipver=1"></' + 'script>')
     </script>
     <title>Remedies</title>
@@ -25,26 +22,26 @@
     {{/if}}
     <button id="btntop"><i class="material-icons">arrow_upward</i></button> 
     {{>navbar}}
-    <main id="swup" class="transition-fade">
+    <main id="swup" class="transition-fade"></main>
     <section class="remedieslanding">
         <div class="bg">
             <div class="mainflexbox">
                 <div class="flexbtnandtxt">
                     <h1>Discover New Remedies</h1>
                     <div class="flexbtn">
-                        <a href="#remsub1" class="btnicon">
+                        <a href="#scrollimg1" class="btnicon">
                             <div class="btn">
                                 <div class="icon1"></div>
                                 <h1 class="h1">Herbs</h1>
                             </div>
                         </a>
-                        <a href="#" class="btnicon">
+                        <a href="#scrollimg2" class="btnicon">
                             <div class="btn">
                                 <div class="icon2"></div>
                                 <h1 class="h2">Diet</h1>
                             </div>
                         </a>
-                        <a href="#" class="btnicon">
+                        <a href="#scrollimg3" class="btnicon">
                             <div class="btn">
                                 <div class="icon3"></div>
                                 <h1 class="h3">Exercise</h1>
@@ -69,7 +66,7 @@
     <section id="remsub1" class="remsub1">
         <div class="bgsub1">
             <div class="mainflexsub1">
-                <div class="pictxt1">
+                <div class="pictxt1" id="scrollimg1">
                     <div class="flexpictxt1">
                         <div class="pic1sub1"></div>
                         <div class="flextxt1sub1">
@@ -87,16 +84,42 @@
                         </div>
                     </div>
                 </div>
-                
-                {{!-- <div class="pictxt2">
-                    <div class="flexpictxt2">
-                        <div class="pic2"></div>sub2
-                        <div class="flextxtsub1">
-                            <h1>Hello</h1>
-                            <h2>Heelllloooooo!!!!!!!!</h2>
+                <div class="pictxt3" id="scrollimg2">
+                    <div class="flexpictxt1">
+                        <div class="flextxt1sub1">
+                            <h1>Eat a variety of foods</h1>
+                            <h2>Healthy eating means eating a wide variety of foods from each of the 5 major food groups, in the amounts recommended. The Australian Dietary Guidelines provide up-to-date advice about the types and amount of foods that we need to eat for our health. Eating a variety of foods from the 5 major food groups provides a range of different nutrients to the body, promotes good health and can help reduce the risk of disease - as well as keeping your diet interesting with different flavours and textures. Many of the foods that often feature regularly in modern diets do not form part of the 5 food groups. These foods, sometimes referred to as 'junk' foods, 'discretionary choices' or 'occasional foods' can be enjoyed sometimes, but should not feature regularly in a healthy diet. Fats and oils are high in kilojoules (energy) but necessary for a healthy diet in small amounts. No matter where you're starting, it's easy to make little changes to bring your eating closer in line with the Australian Dietary Guidelines. Just focus on eating foods from the 5 major food groups and reducing your intake of occasional foods.</h2>
+                        </div>                        
+                        <div class="pic1sub1"></div>
+                    </div>
+                </div>
+                <div class="pictxt4">
+                    <div class="flexpictxt1">
+                        <div class="flextxt1sub1">
+                            <h1>Eat your fruits instead of drinking them</h1>
+                            <h2>Fruits are loaded with water, fiber, vitamins, and antioxidants. Studies have repeatedly linked eating fruit to a reduced risk of several health conditions, such as heart disease, type 2 diabetes, and cancer. Because fruits contain fiber and various plant compounds, their natural sugars are generally digested very slowly and don’t cause major spikes in blood sugar levels. However, the same doesn’t apply to fruit juices. Many fruit juices aren’t even made from real fruit, but rather concentrate and sugar. Some varieties may even contain as much sugar as a sugary soft drink. Even real fruit juices lack the fiber and chewing resistance provided by whole fruits. This makes fruit juice much more likely to spike your blood sugar levels, leading you to consume too much in a single sitting.</h2>
+                        </div>
+                        <div class="pic1sub1"></div>
+                    </div>
+                </div>
+                <div class="pictxt5" id="scrollimg3">
+                    <div class="flexpictxt1">
+                        <div class="pic1sub1"></div>
+                        <div class="flextxt1sub1">
+                            <h1>Tai Chi</h1>
+                            <h2>This Chinese martial art that combines movement and relaxation is good for both body and mind. In fact, it's been called "meditation in motion." Tai chi is made up of a series of graceful movements, one transitioning smoothly into the next. Because the classes are offered at various levels, tai chi is accessible — and valuable — for people of all ages and fitness levels. "It's particularly good for older people because balance is an important component of fitness, and balance is something we lose as we get older," Dr. Lee says. Take a class to help you get started and learn the proper form. You can find tai chi programs at your local YMCA, health club, community center, or senior center.</h2>
                         </div>
                     </div>
-                </div> --}}
+                </div>
+                <div class="pictxt6">
+                    <div class="flexpictxt1">
+                        <div class="pic1sub1"></div>
+                        <div class="flextxt1sub1">
+                            <h1>Kegel Exercises</h1>
+                            <h2>These exercises won't help you look better, but they do something just as important — strengthen the pelvic floor muscles that support the bladder. Strong pelvic floor muscles can go a long way toward preventing incontinence. While many women are familiar with Kegels, these exercises can benefit men too. To do a Kegel exercise correctly, squeeze the muscles you would use to prevent yourself from passing urine or gas. Hold the contraction for two or three seconds, then release. Make sure to completely relax your pelvic floor muscles after the contraction. Repeat 10 times. Try to do four to five sets a day. Many of the things we do for fun (and work) count as exercise. Raking the yard counts as physical activity. So does ballroom dancing and playing with your kids or grandkids. As long as you're doing some form of aerobic exercise for at least 30 minutes a day, and you include two days of strength training a week, you can consider yourself an "active" person.</h2>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -117,7 +140,11 @@
                     <a href="/"><h2>Home</h2></a>
                     <a id="rembtntop2"><h2>Remedies</h2></a>
                     <a href="Contact.html"><h2>Contact Us</h2></a>
-                    <a href="Login.html"><h2>Login</h2></a>
+                    {{# if loggedIn}}
+                        <a href="Logout.html"><h2>Logout</h2></a>
+                    {{else}}
+                        <a href="Login.html"><h2>Login</h2>></a>
+                    {{/if}}
                 </div>
                 <div class="policies">
                     <h1>Legal</h1>

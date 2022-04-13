@@ -297,7 +297,7 @@ label{
     cursor: pointer;
     position: absolute;
     left: 50%;
-    bottom: -11%;
+    bottom: -12%;
     transform: translateX(-50%);
 }
 
@@ -482,9 +482,4 @@ label{
 
 #copyrightbtn:hover{
     color: var(--color-3);
-}
-
-
-@media only screen and (max-width: 1900px){
-    
 }

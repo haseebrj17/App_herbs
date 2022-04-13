@@ -8,7 +8,7 @@
     "dev": "nodemon src/app.js"
   },
   "author": "Seeb_RJ17",
-  "license": "ISC",
+  "license": "Apache License 2.0",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.1.3",

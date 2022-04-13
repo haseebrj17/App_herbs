@@ -7,12 +7,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/master.css">
     <link rel="shortcut icon" type="image/svg" href="fonts/svg/logo1.svg"/>
-    <script defer src="node_modules/swup/dist/swup.min.js"></script>
-    <script defer src="js/script.js"></script>
     <script>
-        document.write('<script src="https://' + (location.host || 'localhost').split(':')[0] +
+        document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
         ':35729/livereload.js?snipver=1"></' + 'script>')
     </script>
     <title>A'ashab-ul-Hayyat</title>
@@ -52,7 +49,7 @@
                         <div id="popupvideohome">
                             <button data-close-button id="close-popup-video">&times;</button>
                             <div id="videohome">
-                                <video id="video" width="100%" height="100%" src="video/production ID_4441000.mp4" autoplay loop disablePictureInPicture><source src="../../public/video/c1.mp4" type="video/mp4"></video>
+                                <video id="video" width="100%" height="100%" src="video/production ID_4441000.mp4" autoplay loop disablePictureInPicture></video>
                             </div>
                         </div>
                     </div>
@@ -73,7 +70,7 @@
         <section class="aboutus">
             <div class="flexbox1">
                 <h1>About Us</h1>
-                <p>What is Lorem Ipsum? <br>Lorem Ipsum is simply dummy text of <br>the printing and typesetting industry. <br>Lorem Ipsum the like. What is Lorem? <br>Lorem Ipsum is simply dummy text of <br>the printing and typesetting industry.</p>
+                <p>Hello we are a group of <br>collage friends who love having <br>a healthy and balanced life <br>and share the secrets for<br> a great life to other</p>
             </div>
             <div class="img_about"></div>
             <div class="quoteimg_about"></div>
@@ -86,12 +83,16 @@
                         <h3>"The art of healing comes from nature, <br>not from the physician."</h3>
                         <h2>-Paracelsus</h2>
                     </div>
-                        <div class="explore">
+                    <div class="explore">
                         <h1>Explore</h1>
                         <a id="btntop2"><h2>Home</h2></a>
                         <a href="Remedies.html"><h2>Remedies</h2></a>
                         <a href="Contact.html"><h2>Contact Us</h2></a>
-                        <a href="Login.html"><h2>Login</h2></a>
+                        {{# if loggedIn}}
+                            <a href="Logout.html"><h2>Logout</h2></a>
+                        {{else}}
+                            <a href="Login.html"><h2>Login</h2>></a>
+                        {{/if}}
                     </div>
                     <div class="policies">
                         <h1>Legal</h1>

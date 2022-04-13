@@ -11,10 +11,9 @@ const jwt = require('jsonwebtoken'); // Importing the Jsonwebtoken package, this
 require("./db/conn"); // Importing the Database connection code form the file "conn.js" on the "db" directory, this is used to connect the app to the database
 const Register = require("./models/user"); // Importing the user schema form the "user.js" file in the "models" directory, in this file the new registration parameter, variales and values are defined
 const auth = require("./middleware/auth"); // Importing the "auth" file from the "middleware" directory, this is the code for authenticate if users are logged in when visitng member only area "remediesjwt.hbs"
-const cloudinary = require('cloudinary')
+const logKey = process.env.SEC_KEY_SES;
 const gmUser = process.env.GM_USER; // Importing the GM_USER enviromental variable from the Dotenv (.env) file, this will be used as a credential by the Nodemailer package to send the emails
-const gmPass = process.env.GM_PASS; // Importing the GM_PASS enviromental variable from the Dotenv (.env) file, this will be used as a credential by the Nodemailer package to send the emails
-const logKey = process.env.SEC_KEY_SES; // Importing the SEC_KEY_SES enviromental variable from the Dotenv (.env) file, the value of this variable will be used by the Express-session to secure the session on the browser.
+const gmPass = process.env.GM_PASS;// Importing the GM_PASS enviromental variable from the Dotenv (.env) file, this will be used as a credential by the Nodemailer package to send the emails 
 const port = process.env.PORT || 3000; // Importing the PORT enviromental variable from the Dotenv (.env) file, this will be the port used by the app. Also defineing a alternative port (3000)
 const path = require('path'); // Importing Path package, this will be used to define the path of the directories that are used in the app in refrence to the Root directory
 const static_path = path.join(__dirname, "../public" ); 
@@ -25,15 +24,6 @@ app.set("view engine", "hbs");
 app.set("views", template_path);
 app.use(express.static(static_path));
 hbs.registerPartials(partials_path);
-
-//Cloudianry Config
-
-cloudinary.config({ 
-    cloud_name: 'hs8ey0x0j', 
-    api_key: '476421252652826', 
-    api_secret: 'pmid43-PLwOPz2BG2XTvTQnZlNM',
-    secure: true
-});
 
 //Express Body Parser MIDDLEWARE
 
@@ -168,7 +158,7 @@ app.post('/Contact.html', (req, res) =>{
         req.session.message = {
             type: 'Backend Problem',
             intro: 'Something went wrong ',
-            message: 'Cannot send the query please try again later'
+            message: 'Cannot send the query due to backend problem please try again later'
         }
         res.redirect('/Contact.html')
         delete req.session.message

@@ -7,13 +7,10 @@
     <link rel="stylesheet" href="css/contact.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="fonts/mycollection_2/font/flaticon.css">
-    <link rel="stylesheet" href="css/master.css">
     <link rel="shortcut icon" type="image/svg" href="fonts/svg/logo1.svg"/>
-    <script defer src="node_modules/swup/dist/swup.min.js"></script>
-    <script defer src="js/script.js"></script>
     <script type="text/javascript" src="../../src/app.js" defer></script>
     <script>
-        document.write('<script src="https://' + (location.host || 'localhost').split(':')[0] +
+        document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
         ':35729/livereload.js?snipver=1"></' + 'script>')
     </script>
     <title>A'ashab-ul-Hayyat</title>
@@ -32,31 +29,31 @@
             <div class="picturecontactus">
                 <div class="flexcontainer">
                     <div class="video">
-                        <video id="video" width="700" height="350" src="video/ITGS_IA_VIDEO_CONTACT_US.mp4" autoplay loop disablePictureInPicture zoom="0.01%"><source src="../../public/video/c1.mp4" type="video/mp4"></video>
+                        <video id="video" width="700" height="350" src="video/c1.mp4" autoplay loop disablePictureInPicture zoom="0.01%"></video>
                     </div>
                     <div class="container">
                         <div class="info">    
                             <h1 class="contactus">Contact Us</h1>
                             <div class="box">
-                                <a href="https://auto:blank"><div class="mail"></div></a>
+                                <a href="mailto:aashabulhayyat2021@gmail.com"><div class="mail"></div></a>
                                 <div class="text">
                                     <h2 id="mail">Herbs@aashabulhayyat.com</h2>
                                 </div>
                             </div>
                             <div class="box">
-                                <a href="https://auto:blank"><div class="phone"></div></a>
+                                <a><div class="phone"></div></a>
                                 <div class="text">
-                                    <h2 id="number">+92----------</h2>
+                                    <h2 id="number">+923485318724</h2>
                                 </div>
                             </div>
                             <div class="box">
-                                <a href="https://auto:blank"><div class="insta"></div></a>
+                                <a href="https://www.instagram.com"><div class="insta"></div></a>
                                 <div class="text">
                                     <h2 id="instagram">A’ashab-ul-Hayyat</h2> 
                                 </div>
                             </div>           
                             <div class="box">
-                                <a href="https://auto:blank"><div class="fb"></div></a>
+                                <a href="https://www.facebook.com"><div class="fb"></div></a>
                                 <div class="text">
                                     <h2 id="facebook">A’ashab-ul-Hayyat</h2>
                                 </div>                        
@@ -110,7 +107,11 @@
                         <a href="/"><h2>Home</h2></a>
                         <a href="Remedies.html"><h2>Remedies</h2></a>
                         <a id="btntopcontact"><h2>Contact Us</h2></a>
-                        <a href="Login.html"><h2>Login</h2></a>
+                        {{# if loggedIn}}
+                            <a href="Logout.html"><h2>Logout</h2></a>
+                        {{else}}
+                            <a href="Login.html"><h2>Login</h2></a>
+                        {{/if}}
                     </div>
                     <div class="policies">
                         <h1>Legal</h1>
