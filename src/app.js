@@ -19,6 +19,10 @@ const path = require('path'); // Importing Path package, this will be used to de
 const static_path = path.join(__dirname, "../public" ); 
 const template_path = path.join(__dirname, "../template/views" );
 const partials_path = path.join(__dirname, "../template/partials" );
+const cliId = process.env.CLIID;
+const cliSec = process.env.CLISEC; 
+const rfTk = process.env.RFTK; 
+const accTk = process.env.ACCTK;
 
 app.set("view engine", "hbs");
 app.set("views", template_path);
@@ -119,8 +123,12 @@ app.post('/Contact.html', (req, res) =>{
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
+                type: "OAuth2",
                 user: gmUser,
-                pass: gmPass
+                clientId: cliId,
+                clientSecret: cliSec,
+                refreshToken: rfTk,
+                accessToken: accTk
             }
         })
 
@@ -158,7 +166,7 @@ app.post('/Contact.html', (req, res) =>{
         req.session.message = {
             type: 'Backend Problem',
             intro: 'Something went wrong ',
-            message: 'Cannot send the query due to backend problem please try again later'
+            message: 'Cannot send the query due to backend problem.'
         }
         res.redirect('/Contact.html')
         delete req.session.message
