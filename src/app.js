@@ -12,6 +12,10 @@ require("./db/conn"); // Importing the Database connection code form the file "c
 const Register = require("./models/user"); // Importing the user schema form the "user.js" file in the "models" directory, in this file the new registration parameter, variales and values are defined
 const auth = require("./middleware/auth"); // Importing the "auth" file from the "middleware" directory, this is the code for authenticate if users are logged in when visitng member only area "remediesjwt.hbs"
 const logKey = process.env.SEC_KEY_SES;
+const cliId = process.env.CLIID;
+const cliSec = process.env.CLISEC; 
+const rfTk = process.env.RFTK; 
+const accTk = process.env.ACCTK;
 const gmUser = process.env.GM_USER; // Importing the GM_USER enviromental variable from the Dotenv (.env) file, this will be used as a credential by the Nodemailer package to send the emails
 const gmPass = process.env.GM_PASS;// Importing the GM_PASS enviromental variable from the Dotenv (.env) file, this will be used as a credential by the Nodemailer package to send the emails 
 const port = process.env.PORT || 3000; // Importing the PORT enviromental variable from the Dotenv (.env) file, this will be the port used by the app. Also defineing a alternative port (3000)
@@ -19,10 +23,6 @@ const path = require('path'); // Importing Path package, this will be used to de
 const static_path = path.join(__dirname, "../public" ); 
 const template_path = path.join(__dirname, "../template/views" );
 const partials_path = path.join(__dirname, "../template/partials" );
-const cliId = process.env.CLIID;
-const cliSec = process.env.CLISEC; 
-const rfTk = process.env.RFTK; 
-const accTk = process.env.ACCTK;
 
 app.set("view engine", "hbs");
 app.set("views", template_path);
