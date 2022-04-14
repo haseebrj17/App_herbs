@@ -385,7 +385,7 @@ body{
     transform: translateX(-50%);
     width: 90%;
     height: 70%;
-    font-size: 2.6rem;
+    font-size: 3rem;
     font-family: popmedium;
     color: var(--color-1);
     text-align: start;
